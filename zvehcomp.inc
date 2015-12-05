@@ -88,7 +88,7 @@ static component_name[][MAX_COMPONENT_NAME] = {
 	"Right Alien Sideskirt 'Elegy'",
 	"X-Flow Exhaust 'Elegy'",
 	"Alien Roof Vent 'Elegy'",
-	"Right X-Flow Sideskirt 'Elegy'",
+	"Left X-Flow Sideskirt 'Elegy'",
 	"Left Alien Sideskirt 'Elegy'",
 	"Right X-Flow Sideskirt 'Elegy'",
 	"Right Chrome Sideskirt 'Broadway'",
