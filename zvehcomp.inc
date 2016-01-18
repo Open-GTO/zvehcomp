@@ -2156,6 +2156,7 @@ static gComponents[212][MAX_COMPONENTS char] = {
 };
 
 #undef ZVEH_ADD_COMPONENT
+#undef ZVEH_ADD_INVALID_COMPONENT
 
 /*
 	Component type functions
