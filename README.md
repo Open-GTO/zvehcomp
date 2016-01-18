@@ -5,7 +5,7 @@ Vehicle component system
 
 ```Pawn
 new
-    compatible_types[MAX_COMPONENT_TYPES],
+    compatible_types[ZVEH_MAX_COMPONENT_TYPES],
     compatible_types_count;
 
 GetVehicleCompatibleTypes(400, compatible_types, compatible_types_count);
@@ -20,18 +20,18 @@ for (new i = 0; i < compatible_types_count; i++) {
 ```Pawn
 GetComponentTypeId(name[]);
 GetComponentTypeName(type, name[], size = sizeof(name));
-GetVehicleCompatibleTypes(model, array[MAX_COMPONENT_TYPES], &array_size);
+GetVehicleCompatibleTypes(model, array[ZVEH_MAX_COMPONENT_TYPES], &array_size);
 GetComponentName(componentid, cname[], size = sizeof(cname));
-GetVehicleCompatibleUpgrades(model, array[MAX_COMPONENTS], &array_size);
+GetVehicleCompatibleUpgrades(model, array[ZVEH_MAX_COMPONENTS], &array_size);
 IsVehicleUpgradeCompatible(model, componentid);
 ```
 
 # Constants
 
 ```Pawn
-INVALID_COMPONENT_ID    (255)
-MAX_COMPONENTS          (41)
-MAX_COMPONENT_NAME      (64)
-MAX_COMPONENT_TYPES     (14)
-MAX_COMPONENT_TYPE_NAME (16)
+ZVEH_ZVEH_INVALID_COMPONENT_ID    (255)
+ZVEH_MAX_COMPONENTS               (41)
+ZVEH_MAX_COMPONENT_NAME           (64)
+ZVEH_MAX_COMPONENT_TYPES          (14)
+ZVEH_MAX_COMPONENT_TYPE_NAME      (16)
 ```
