@@ -27,1269 +27,1965 @@
 	Component types
 */
 
-static gComponentType[MAX_COMPONENT_TYPES][MAX_COMPONENT_TYPE_NAME] = {
-	"Spoiler",
-	"Hood",
-	"Roof",
-	"Sideskirt",
-	"Lamps",
-	"Nitro",
-	"Exhaust",
-	"Wheels",
-	"Stereo",
-	"Hydraulics",
-	"Front Bumper",
-	"Rear Bumper",
-	"Vent Right",
-	"Vent Left"
+static gComponentType[MAX_COMPONENT_TYPES][MAX_COMPONENT_TYPE_NAME char] = {
+	!"Spoiler",
+	!"Hood",
+	!"Roof",
+	!"Sideskirt",
+	!"Lamps",
+	!"Nitro",
+	!"Exhaust",
+	!"Wheels",
+	!"Stereo",
+	!"Hydraulics",
+	!"Front Bumper",
+	!"Rear Bumper",
+	!"Vent Right",
+	!"Vent Left"
 };
 
 /*
 	Components name
 */
 
-static gComponentName[][MAX_COMPONENT_NAME] = {
-	"Pro Spoiler",
-	"Win Spoiler",
-	"Drag Spoiler",
-	"Alpha Spoiler",
-	"Champ Scoop Hood",
-	"Fury Scoop Hood",
-	"Roof Scoop",
-	"Right Sideskirt",
-	"5x Nitro",
-	"2x Nitro",
-	"10x Nitro",
-	"Race Scoop Hood",
-	"Worx Scoop Hood",
-	"Round Fog Lamps",
-	"Champ Spoiler",
-	"Race Spoiler",
-	"Worx Spoiler",
-	"Left Sideskirt",
-	"Upswept Exhaust",
-	"Twin Exhaust",
-	"Large Exhaust",
-	"Medium Exhaust",
-	"Small Exhaust",
-	"Fury Spoiler",
-	"Square Fog Lamps",
-	"Offroad Wheels",
-	"Right Alien Sideskirt 'Sultan'",
-	"Left Alien Sideskirt 'Sultan'",
-	"Alien Exhaust 'Sultan'",
-	"X-Flow Exhaust 'Sultan'",
-	"Left X-Flow Sideskirt 'Sultan'",
-	"Right X-Flow Sideskirt 'Sultan'",
-	"Alien Roof Vent 'Sultan'",
-	"X-Flow Roof Vent 'Sultan'",
-	"Alien Exhaust 'Elegy'",
-	"X-Flow Roof Vent 'Elegy'",
-	"Right Alien Sideskirt 'Elegy'",
-	"X-Flow Exhaust 'Elegy'",
-	"Alien Roof Vent 'Elegy'",
-	"Left X-Flow Sideskirt 'Elegy'",
-	"Left Alien Sideskirt 'Elegy'",
-	"Right X-Flow Sideskirt 'Elegy'",
-	"Right Chrome Sideskirt 'Broadway'",
-	"Slamin Exhaust 'Broadway'",
-	"Chrome Exhaust 'Broadway'",
-	"X-Flow Exhaust 'Flash'",
-	"Alien Exhaust 'Flash'",
-	"Right Alien Sideskirt 'Flash'",
-	"Right X-Flow Sideskirt 'Flash'",
-	"Alien Spoiler 'Flash'",
-	"X-Flow Spoiler 'Flash'",
-	"Left Alien Sideskirt 'Flash'",
-	"Left X-Flow Sideskirt 'Flash'",
-	"X-Flow Roof 'Flash'",
-	"Alien Roof 'Flash'",
-	"Alien Roof 'Stratum'",
-	"Right Alien Sideskirt 'Stratum'",
-	"Right X-Flow Sideskirt 'Stratum'",
-	"Alien Spoiler 'Stratum'",
-	"X-Flow Exhaust 'Stratum'",
-	"X-Flow Spoiler 'Stratum'",
-	"X-Flow Roof 'Stratum'",
-	"Left Alien Sideskirt 'Stratum'",
-	"Left X-Flow Sideskirt 'Stratum'",
-	"Alien Exhaust 'Stratum'",
-	"Alien Exhaust 'Jester'",
-	"X-Flow Exhaust 'Jester'",
-	"Alien Roof 'Jester'",
-	"X-Flow Roof 'Jester'",
-	"Right Alien Sideskirt 'Jester'",
-	"Right X-Flow Sideskirt 'Jester'",
-	"Left Alien Sideskirt 'Jester'",
-	"Left X-Flow Sideskirt 'Jester'",
-	"Shadow Wheels",
-	"Mega Wheels",
-	"Rimshine Wheels",
-	"Wires Wheels",
-	"Classic Wheels",
-	"Twist Wheels",
-	"Cutter Wheels",
-	"Switch Wheels",
-	"Grove Wheels",
-	"Import Wheels",
-	"Dollar Wheels",
-	"Trance Wheels",
-	"Atomic Wheels",
-	"Stereo Sound",
-	"Hydraulics",
-	"Alien Roof 'Uranus'",
-	"X-Flow Exhaust 'Uranus'",
-	"Right Alien Sideskirt 'Uranus'",
-	"X-Flow Roof 'Uranus'",
-	"Alien Exhaust 'Uranus'",
-	"Left X-Flow Sideskirt 'Uranus'",
-	"Left Alien Sideskirt 'Uranus'",
-	"Right X-Flow Sideskirt 'Uranus'",
-	"Ahab Wheels",
-	"Virtual Wheels",
-	"Access Wheels",
-	"Left Chrome Sideskirt 'Broadway'",
-	"Chrome Grill Bullbar 'Remington'",
-	"Left 'Chrome Flames' Sideskirt 'Remington'",
-	"Left 'Chrome Strip' Sideskirt 'Savanna'",
-	"Corvetible Roof 'Blade'",
-	"Chrome Exhaust 'Blade'",
-	"Slamin Exhaust 'Blade'",
-	"Right 'Chrome Arches' Sideskirt 'Remington'",
-	"Left 'Chrome Strip' Sideskirt 'Blade'",
-	"Right 'Chrome Strip' Sideskirt 'Blade'",
-	"Chrome Rear Bullbars 'Slamvan'",
-	"Slamin Rear Bullbars 'Slamvan'",
-	"Little Front Sign? 'Slamvan'",
-	"Little Front Sign? 'Slamvan'",
-	"Chrome Exhaust 'Slamvan'",
-	"Slamin Exhaust 'Slamvan'",
-	"Chrome Front Bullbars 'Slamvan'",
-	"Slamin Front Bullbars 'Slamvan'",
-	"Chrome Front Bumper 'Slamvan'",
-	"Right 'Chrome Trim' Sideskirt 'Slamvan'",
-	"Right 'Wheelcovers' Sideskirt 'Slamvan'",
-	"Left 'Chrome Trim' Sideskirt 'Slamvan'",
-	"Left 'Wheelcovers' Sideskirt 'Slamvan'",
-	"Right 'Chrome Flames' Sideskirt 'Remington'",
-	"Bullbar Chrome Bars 'Remington'",
-	"Left 'Chrome Arches' Sideskirt 'Remington'",
-	"Bullbar Chrome Lights 'Remongton'",
-	"Chrome Exhaust 'Remington'",
-	"Slamin Exhaust 'Remington'",
-	"Vinyl Hardtop 'Blade'",
-	"Chrome Exhaust 'Savanna'",
-	"Hardtop Roof 'Savanna'",
-	"Softtop Roof 'Savanna'",
-	"Slamin Exhaust 'Savanna'",
-	"Right 'Chrome Strip' Sideskirt 'Savanna'",
-	"Right 'Chrome Strip' Sideskirt 'Tornado'",
-	"Slamin Exhaust 'Tornado'",
-	"Chrome Exhaust 'Tornado'",
-	"Left 'Chrome Strip' Sideskirt 'Tornado'",
-	"Alien Spoiler 'Sultan'",
-	"X-Flow Spoiler 'Sultan'",
-	"X-Flow Rear Bumper 'Sultan'",
-	"Alien Rear Bumper 'Sultan'",
-	"Left Oval Vents",
-	"Right Oval Vents",
-	"Left Square Vents",
-	"Right Square Vents",
-	"X-Flow Spoiler 'Elegy'",
-	"Alien Spoiler 'Elegy'",
-	"X-Flow Rear Bumper 'Elegy'",
-	"Alien Rear Bumper 'Elegy'",
-	"Alien Rear Bumper 'Flash'",
-	"X-Flow Rear Bumper 'Flash'",
-	"X-Flow Front Bumper 'Flash'",
-	"Alien Front Bumper 'Flash'",
-	"Alien Rear Bumper 'Stratum'",
-	"Alien Front Bumper 'Stratum'",
-	"X-Flow Rear Bumper 'Stratum'",
-	"X-Flow Front Bumper 'Stratum'",
-	"X-Flow Spoiler 'Jester'",
-	"Alien Rear Bumper 'Jester'",
-	"Alien Front Bumper 'Jester'",
-	"X-Flow Rear Bumper 'Jester'",
-	"Alien Spoiler 'Jester'",
-	"X-Flow Spoiler 'Uranus'",
-	"Alien Spoiler 'Uranus'",
-	"X-Flow Front Bumper 'Uranus'",
-	"Alien Front Bumper 'Uranus'",
-	"X-Flow Rear Bumper 'Uranus'",
-	"Alien Rear Bumper 'Uranus'",
-	"Alien Front Bumper 'Sultan'",
-	"X-Flow Front Bumper 'Sultan'",
-	"Alien Front Bumper 'Elegy'",
-	"X-Flow Front Bumper 'Elegy'",
-	"X-Flow Front Bumper 'Jester'",
-	"Chrome Front Bumper 'Broadway'",
-	"Slamin Front Bumper 'Broadway'",
-	"Chrome Rear Bumper 'Broadway'",
-	"Slamin Rear Bumper 'Broadway'",
-	"Slamin Rear Bumper 'Remington'",
-	"Chrome Front Bumper 'Remington'",
-	"Chrome Rear Bumper 'Remington'",
-	"Slamin Front Bumper 'Blade'",
-	"Chrome Front Bumper 'Blade'",
-	"Slamin Rear Bumper 'Blade'",
-	"Chrome Rear Bumper 'Blade'",
-	"Slamin Front Bumper 'Remington'",
-	"Slamin Rear Bumper 'Savanna'",
-	"Chrome Rear Bumper 'Savanna'",
-	"Slamin Front Bumper 'Savanna'",
-	"Chrome Front Bumper 'Savanna'",
-	"Slamin Front Bumper 'Tornado'",
-	"Chrome Front Bumper 'Tornado'",
-	"Chrome Rear Bumper 'Tornado'",
-	"Slamin Rear Bumper 'Tornado'"
+static gComponentName[][MAX_COMPONENT_NAME char] = {
+	!"Pro Spoiler",
+	!"Win Spoiler",
+	!"Drag Spoiler",
+	!"Alpha Spoiler",
+	!"Champ Scoop Hood",
+	!"Fury Scoop Hood",
+	!"Roof Scoop",
+	!"Right Sideskirt",
+	!"5x Nitro",
+	!"2x Nitro",
+	!"10x Nitro",
+	!"Race Scoop Hood",
+	!"Worx Scoop Hood",
+	!"Round Fog Lamps",
+	!"Champ Spoiler",
+	!"Race Spoiler",
+	!"Worx Spoiler",
+	!"Left Sideskirt",
+	!"Upswept Exhaust",
+	!"Twin Exhaust",
+	!"Large Exhaust",
+	!"Medium Exhaust",
+	!"Small Exhaust",
+	!"Fury Spoiler",
+	!"Square Fog Lamps",
+	!"Offroad Wheels",
+	!"Right Alien Sideskirt 'Sultan'",
+	!"Left Alien Sideskirt 'Sultan'",
+	!"Alien Exhaust 'Sultan'",
+	!"X-Flow Exhaust 'Sultan'",
+	!"Left X-Flow Sideskirt 'Sultan'",
+	!"Right X-Flow Sideskirt 'Sultan'",
+	!"Alien Roof Vent 'Sultan'",
+	!"X-Flow Roof Vent 'Sultan'",
+	!"Alien Exhaust 'Elegy'",
+	!"X-Flow Roof Vent 'Elegy'",
+	!"Right Alien Sideskirt 'Elegy'",
+	!"X-Flow Exhaust 'Elegy'",
+	!"Alien Roof Vent 'Elegy'",
+	!"Left X-Flow Sideskirt 'Elegy'",
+	!"Left Alien Sideskirt 'Elegy'",
+	!"Right X-Flow Sideskirt 'Elegy'",
+	!"Right Chrome Sideskirt 'Broadway'",
+	!"Slamin Exhaust 'Broadway'",
+	!"Chrome Exhaust 'Broadway'",
+	!"X-Flow Exhaust 'Flash'",
+	!"Alien Exhaust 'Flash'",
+	!"Right Alien Sideskirt 'Flash'",
+	!"Right X-Flow Sideskirt 'Flash'",
+	!"Alien Spoiler 'Flash'",
+	!"X-Flow Spoiler 'Flash'",
+	!"Left Alien Sideskirt 'Flash'",
+	!"Left X-Flow Sideskirt 'Flash'",
+	!"X-Flow Roof 'Flash'",
+	!"Alien Roof 'Flash'",
+	!"Alien Roof 'Stratum'",
+	!"Right Alien Sideskirt 'Stratum'",
+	!"Right X-Flow Sideskirt 'Stratum'",
+	!"Alien Spoiler 'Stratum'",
+	!"X-Flow Exhaust 'Stratum'",
+	!"X-Flow Spoiler 'Stratum'",
+	!"X-Flow Roof 'Stratum'",
+	!"Left Alien Sideskirt 'Stratum'",
+	!"Left X-Flow Sideskirt 'Stratum'",
+	!"Alien Exhaust 'Stratum'",
+	!"Alien Exhaust 'Jester'",
+	!"X-Flow Exhaust 'Jester'",
+	!"Alien Roof 'Jester'",
+	!"X-Flow Roof 'Jester'",
+	!"Right Alien Sideskirt 'Jester'",
+	!"Right X-Flow Sideskirt 'Jester'",
+	!"Left Alien Sideskirt 'Jester'",
+	!"Left X-Flow Sideskirt 'Jester'",
+	!"Shadow Wheels",
+	!"Mega Wheels",
+	!"Rimshine Wheels",
+	!"Wires Wheels",
+	!"Classic Wheels",
+	!"Twist Wheels",
+	!"Cutter Wheels",
+	!"Switch Wheels",
+	!"Grove Wheels",
+	!"Import Wheels",
+	!"Dollar Wheels",
+	!"Trance Wheels",
+	!"Atomic Wheels",
+	!"Stereo Sound",
+	!"Hydraulics",
+	!"Alien Roof 'Uranus'",
+	!"X-Flow Exhaust 'Uranus'",
+	!"Right Alien Sideskirt 'Uranus'",
+	!"X-Flow Roof 'Uranus'",
+	!"Alien Exhaust 'Uranus'",
+	!"Left X-Flow Sideskirt 'Uranus'",
+	!"Left Alien Sideskirt 'Uranus'",
+	!"Right X-Flow Sideskirt 'Uranus'",
+	!"Ahab Wheels",
+	!"Virtual Wheels",
+	!"Access Wheels",
+	!"Left Chrome Sideskirt 'Broadway'",
+	!"Chrome Grill Bullbar 'Remington'",
+	!"Left 'Chrome Flames' Sideskirt 'Remington'",
+	!"Left 'Chrome Strip' Sideskirt 'Savanna'",
+	!"Corvetible Roof 'Blade'",
+	!"Chrome Exhaust 'Blade'",
+	!"Slamin Exhaust 'Blade'",
+	!"Right 'Chrome Arches' Sideskirt 'Remington'",
+	!"Left 'Chrome Strip' Sideskirt 'Blade'",
+	!"Right 'Chrome Strip' Sideskirt 'Blade'",
+	!"Chrome Rear Bullbars 'Slamvan'",
+	!"Slamin Rear Bullbars 'Slamvan'",
+	!"Little Front Sign? 'Slamvan'",
+	!"Little Front Sign? 'Slamvan'",
+	!"Chrome Exhaust 'Slamvan'",
+	!"Slamin Exhaust 'Slamvan'",
+	!"Chrome Front Bullbars 'Slamvan'",
+	!"Slamin Front Bullbars 'Slamvan'",
+	!"Chrome Front Bumper 'Slamvan'",
+	!"Right 'Chrome Trim' Sideskirt 'Slamvan'",
+	!"Right 'Wheelcovers' Sideskirt 'Slamvan'",
+	!"Left 'Chrome Trim' Sideskirt 'Slamvan'",
+	!"Left 'Wheelcovers' Sideskirt 'Slamvan'",
+	!"Right 'Chrome Flames' Sideskirt 'Remington'",
+	!"Bullbar Chrome Bars 'Remington'",
+	!"Left 'Chrome Arches' Sideskirt 'Remington'",
+	!"Bullbar Chrome Lights 'Remongton'",
+	!"Chrome Exhaust 'Remington'",
+	!"Slamin Exhaust 'Remington'",
+	!"Vinyl Hardtop 'Blade'",
+	!"Chrome Exhaust 'Savanna'",
+	!"Hardtop Roof 'Savanna'",
+	!"Softtop Roof 'Savanna'",
+	!"Slamin Exhaust 'Savanna'",
+	!"Right 'Chrome Strip' Sideskirt 'Savanna'",
+	!"Right 'Chrome Strip' Sideskirt 'Tornado'",
+	!"Slamin Exhaust 'Tornado'",
+	!"Chrome Exhaust 'Tornado'",
+	!"Left 'Chrome Strip' Sideskirt 'Tornado'",
+	!"Alien Spoiler 'Sultan'",
+	!"X-Flow Spoiler 'Sultan'",
+	!"X-Flow Rear Bumper 'Sultan'",
+	!"Alien Rear Bumper 'Sultan'",
+	!"Left Oval Vents",
+	!"Right Oval Vents",
+	!"Left Square Vents",
+	!"Right Square Vents",
+	!"X-Flow Spoiler 'Elegy'",
+	!"Alien Spoiler 'Elegy'",
+	!"X-Flow Rear Bumper 'Elegy'",
+	!"Alien Rear Bumper 'Elegy'",
+	!"Alien Rear Bumper 'Flash'",
+	!"X-Flow Rear Bumper 'Flash'",
+	!"X-Flow Front Bumper 'Flash'",
+	!"Alien Front Bumper 'Flash'",
+	!"Alien Rear Bumper 'Stratum'",
+	!"Alien Front Bumper 'Stratum'",
+	!"X-Flow Rear Bumper 'Stratum'",
+	!"X-Flow Front Bumper 'Stratum'",
+	!"X-Flow Spoiler 'Jester'",
+	!"Alien Rear Bumper 'Jester'",
+	!"Alien Front Bumper 'Jester'",
+	!"X-Flow Rear Bumper 'Jester'",
+	!"Alien Spoiler 'Jester'",
+	!"X-Flow Spoiler 'Uranus'",
+	!"Alien Spoiler 'Uranus'",
+	!"X-Flow Front Bumper 'Uranus'",
+	!"Alien Front Bumper 'Uranus'",
+	!"X-Flow Rear Bumper 'Uranus'",
+	!"Alien Rear Bumper 'Uranus'",
+	!"Alien Front Bumper 'Sultan'",
+	!"X-Flow Front Bumper 'Sultan'",
+	!"Alien Front Bumper 'Elegy'",
+	!"X-Flow Front Bumper 'Elegy'",
+	!"X-Flow Front Bumper 'Jester'",
+	!"Chrome Front Bumper 'Broadway'",
+	!"Slamin Front Bumper 'Broadway'",
+	!"Chrome Rear Bumper 'Broadway'",
+	!"Slamin Rear Bumper 'Broadway'",
+	!"Slamin Rear Bumper 'Remington'",
+	!"Chrome Front Bumper 'Remington'",
+	!"Chrome Rear Bumper 'Remington'",
+	!"Slamin Front Bumper 'Blade'",
+	!"Chrome Front Bumper 'Blade'",
+	!"Slamin Rear Bumper 'Blade'",
+	!"Chrome Rear Bumper 'Blade'",
+	!"Slamin Front Bumper 'Remington'",
+	!"Slamin Rear Bumper 'Savanna'",
+	!"Chrome Rear Bumper 'Savanna'",
+	!"Slamin Front Bumper 'Savanna'",
+	!"Chrome Front Bumper 'Savanna'",
+	!"Slamin Front Bumper 'Tornado'",
+	!"Chrome Front Bumper 'Tornado'",
+	!"Chrome Rear Bumper 'Tornado'",
+	!"Slamin Rear Bumper 'Tornado'"
 };
 
 /*
 	Components array
 */
 
-static gComponents[212][MAX_COMPONENTS] = {
+#define ZVEHCOMP_ADD_COMPONENT(%0,%1,%2,%3) ((%3) | ((%2) << 8) | ((%1) << 16) | ((%0) << 24))
+
+static gComponents[212][MAX_COMPONENTS char] = {
 	// 400
 	{
-		1008, 1009, 1010, 1013, 1018, 1019, 1020, 1021, 1024, 1025, 1073, 1074, 1075, 1076, 1077,
-		1078, 1079, 1080, 1081, 1082, 1083, 1084, 1085, 1087, 1096, 1097, 1098
+		ZVEHCOMP_ADD_COMPONENT(8, 9, 10, 13),
+		ZVEHCOMP_ADD_COMPONENT(18, 19, 20, 21),
+		ZVEHCOMP_ADD_COMPONENT(24, 25, 73, 74),
+		ZVEHCOMP_ADD_COMPONENT(75, 76, 77, 78),
+		ZVEHCOMP_ADD_COMPONENT(79, 80, 81, 82),
+		ZVEHCOMP_ADD_COMPONENT(83, 84, 85, 87),
+		ZVEHCOMP_ADD_COMPONENT(96, 97, 98, 0),
 	},
 	// 401
 	{
-		1001, 1003, 1004, 1005, 1006, 1007, 1008, 1009, 1010, 1013, 1017, 1019, 1020, 1025, 1073,
-		1074, 1075, 1076, 1077, 1078, 1079, 1080, 1081, 1082, 1083, 1084, 1085, 1087, 1096, 1097,
-		1098, 1142, 1143, 1144, 1145
+		ZVEHCOMP_ADD_COMPONENT(1, 3, 4, 5),
+		ZVEHCOMP_ADD_COMPONENT(6, 7, 8, 9),
+		ZVEHCOMP_ADD_COMPONENT(10, 13, 17, 19),
+		ZVEHCOMP_ADD_COMPONENT(20, 25, 73, 74),
+		ZVEHCOMP_ADD_COMPONENT(75, 76, 77, 78),
+		ZVEHCOMP_ADD_COMPONENT(79, 80, 81, 82),
+		ZVEHCOMP_ADD_COMPONENT(83, 84, 85, 87),
+		ZVEHCOMP_ADD_COMPONENT(96, 97, 98, 142),
+		ZVEHCOMP_ADD_COMPONENT(143, 144, 145, 0),
 	},
 	// 402
 	{
-		1008, 1009, 1010, 1025, 1073, 1074, 1075, 1076, 1077, 1078, 1079, 1080, 1081, 1082, 1083,
-		1084, 1085, 1087, 1096, 1097, 1098
+		ZVEHCOMP_ADD_COMPONENT(8, 9, 10, 25),
+		ZVEHCOMP_ADD_COMPONENT(73, 74, 75, 76),
+		ZVEHCOMP_ADD_COMPONENT(77, 78, 79, 80),
+		ZVEHCOMP_ADD_COMPONENT(81, 82, 83, 84),
+		ZVEHCOMP_ADD_COMPONENT(85, 87, 96, 97),
+		ZVEHCOMP_ADD_COMPONENT(98, 0, 0, 0),
 	},
 	// 403
 	{
-		1008, 1009, 1010, 1025, 1073, 1074, 1075, 1076, 1077, 1078, 1079, 1080, 1081, 1082, 1083,
-		1084, 1085, 1087, 1096, 1097, 1098
+		ZVEHCOMP_ADD_COMPONENT(8, 9, 10, 25),
+		ZVEHCOMP_ADD_COMPONENT(73, 74, 75, 76),
+		ZVEHCOMP_ADD_COMPONENT(77, 78, 79, 80),
+		ZVEHCOMP_ADD_COMPONENT(81, 82, 83, 84),
+		ZVEHCOMP_ADD_COMPONENT(85, 87, 96, 97),
+		ZVEHCOMP_ADD_COMPONENT(98, 0, 0, 0),
 	},
 	// 404
 	{
-		1000, 1002, 1007, 1008, 1009, 1010, 1013, 1016, 1017, 1019, 1020, 1021, 1025, 1073, 1074,
-		1075, 1076, 1077, 1078, 1079, 1080, 1081, 1082, 1083, 1084, 1085, 1087, 1096, 1097, 1098
+		ZVEHCOMP_ADD_COMPONENT(0, 2, 7, 8),
+		ZVEHCOMP_ADD_COMPONENT(9, 10, 13, 16),
+		ZVEHCOMP_ADD_COMPONENT(17, 19, 20, 21),
+		ZVEHCOMP_ADD_COMPONENT(25, 73, 74, 75),
+		ZVEHCOMP_ADD_COMPONENT(76, 77, 78, 79),
+		ZVEHCOMP_ADD_COMPONENT(80, 81, 82, 83),
+		ZVEHCOMP_ADD_COMPONENT(84, 85, 87, 96),
+		ZVEHCOMP_ADD_COMPONENT(97, 98, 0, 0),
 	},
 	// 405
 	{
-		1000, 1001, 1008, 1009, 1010, 1014, 1018, 1019, 1020, 1021, 1023, 1025, 1073, 1074, 1075,
-		1076, 1077, 1078, 1079, 1080, 1081, 1082, 1083, 1084, 1085, 1087, 1096, 1097, 1098
+		ZVEHCOMP_ADD_COMPONENT(0, 1, 8, 9),
+		ZVEHCOMP_ADD_COMPONENT(10, 14, 18, 19),
+		ZVEHCOMP_ADD_COMPONENT(20, 21, 23, 25),
+		ZVEHCOMP_ADD_COMPONENT(73, 74, 75, 76),
+		ZVEHCOMP_ADD_COMPONENT(77, 78, 79, 80),
+		ZVEHCOMP_ADD_COMPONENT(81, 82, 83, 84),
+		ZVEHCOMP_ADD_COMPONENT(85, 87, 96, 97),
+		ZVEHCOMP_ADD_COMPONENT(98, 0, 0, 0),
 	},
 	// 406
 	{
-		1008, 1009, 1010, 1025, 1073, 1074, 1075, 1076, 1077, 1078, 1079, 1080, 1081, 1082, 1083,
-		1084, 1085, 1087, 1096, 1097, 1098
+		ZVEHCOMP_ADD_COMPONENT(8, 9, 10, 25),
+		ZVEHCOMP_ADD_COMPONENT(73, 74, 75, 76),
+		ZVEHCOMP_ADD_COMPONENT(77, 78, 79, 80),
+		ZVEHCOMP_ADD_COMPONENT(81, 82, 83, 84),
+		ZVEHCOMP_ADD_COMPONENT(85, 87, 96, 97),
+		ZVEHCOMP_ADD_COMPONENT(98, 0, 0, 0),
 	},
 	// 407
 	{
-		1008, 1009, 1010, 1025, 1073, 1074, 1075, 1076, 1077, 1078, 1079, 1080, 1081, 1082, 1083,
-		1084, 1085, 1087, 1096, 1097, 1098
+		ZVEHCOMP_ADD_COMPONENT(8, 9, 10, 25),
+		ZVEHCOMP_ADD_COMPONENT(73, 74, 75, 76),
+		ZVEHCOMP_ADD_COMPONENT(77, 78, 79, 80),
+		ZVEHCOMP_ADD_COMPONENT(81, 82, 83, 84),
+		ZVEHCOMP_ADD_COMPONENT(85, 87, 96, 97),
+		ZVEHCOMP_ADD_COMPONENT(98, 0, 0, 0),
 	},
 	// 408
 	{
-		1008, 1009, 1010, 1025, 1073, 1074, 1075, 1076, 1077, 1078, 1079, 1080, 1081, 1082, 1083,
-		1084, 1085, 1087, 1096, 1097, 1098
+		ZVEHCOMP_ADD_COMPONENT(8, 9, 10, 25),
+		ZVEHCOMP_ADD_COMPONENT(73, 74, 75, 76),
+		ZVEHCOMP_ADD_COMPONENT(77, 78, 79, 80),
+		ZVEHCOMP_ADD_COMPONENT(81, 82, 83, 84),
+		ZVEHCOMP_ADD_COMPONENT(85, 87, 96, 97),
+		ZVEHCOMP_ADD_COMPONENT(98, 0, 0, 0),
 	},
 	// 409
 	{
-		1008, 1009, 1010, 1025, 1073, 1074, 1075, 1076, 1077, 1078, 1079, 1080, 1081, 1082, 1083,
-		1084, 1085, 1087, 1096, 1097, 1098
+		ZVEHCOMP_ADD_COMPONENT(8, 9, 10, 25),
+		ZVEHCOMP_ADD_COMPONENT(73, 74, 75, 76),
+		ZVEHCOMP_ADD_COMPONENT(77, 78, 79, 80),
+		ZVEHCOMP_ADD_COMPONENT(81, 82, 83, 84),
+		ZVEHCOMP_ADD_COMPONENT(85, 87, 96, 97),
+		ZVEHCOMP_ADD_COMPONENT(98, 0, 0, 0),
 	},
 	// 410
 	{
-		1001, 1003, 1007, 1008, 1009, 1010, 1013, 1017, 1019, 1020, 1021, 1023, 1024, 1025, 1073,
-		1074, 1075, 1076, 1077, 1078, 1079, 1080, 1081, 1082, 1083, 1084, 1085, 1087, 1096, 1097,
-		1098
+		ZVEHCOMP_ADD_COMPONENT(1, 3, 7, 8),
+		ZVEHCOMP_ADD_COMPONENT(9, 10, 13, 17),
+		ZVEHCOMP_ADD_COMPONENT(19, 20, 21, 23),
+		ZVEHCOMP_ADD_COMPONENT(24, 25, 73, 74),
+		ZVEHCOMP_ADD_COMPONENT(75, 76, 77, 78),
+		ZVEHCOMP_ADD_COMPONENT(79, 80, 81, 82),
+		ZVEHCOMP_ADD_COMPONENT(83, 84, 85, 87),
+		ZVEHCOMP_ADD_COMPONENT(96, 97, 98, 0),
 	},
 	// 411
 	{
-		1008, 1009, 1010, 1025, 1073, 1074, 1075, 1076, 1077, 1078, 1079, 1080, 1081, 1082, 1083,
-		1084, 1085, 1087, 1096, 1097, 1098
+		ZVEHCOMP_ADD_COMPONENT(8, 9, 10, 25),
+		ZVEHCOMP_ADD_COMPONENT(73, 74, 75, 76),
+		ZVEHCOMP_ADD_COMPONENT(77, 78, 79, 80),
+		ZVEHCOMP_ADD_COMPONENT(81, 82, 83, 84),
+		ZVEHCOMP_ADD_COMPONENT(85, 87, 96, 97),
+		ZVEHCOMP_ADD_COMPONENT(98, 0, 0, 0),
 	},
 	// 412
 	{
-		1008, 1009, 1010, 1025, 1073, 1074, 1075, 1076, 1077, 1078, 1079, 1080, 1081, 1082, 1083,
-		1084, 1085, 1087, 1096, 1097, 1098
+		ZVEHCOMP_ADD_COMPONENT(8, 9, 10, 25),
+		ZVEHCOMP_ADD_COMPONENT(73, 74, 75, 76),
+		ZVEHCOMP_ADD_COMPONENT(77, 78, 79, 80),
+		ZVEHCOMP_ADD_COMPONENT(81, 82, 83, 84),
+		ZVEHCOMP_ADD_COMPONENT(85, 87, 96, 97),
+		ZVEHCOMP_ADD_COMPONENT(98, 0, 0, 0),
 	},
 	// 413
 	{
-		1008, 1009, 1010, 1025, 1073, 1074, 1075, 1076, 1077, 1078, 1079, 1080, 1081, 1082, 1083,
-		1084, 1085, 1087, 1096, 1097, 1098
+		ZVEHCOMP_ADD_COMPONENT(8, 9, 10, 25),
+		ZVEHCOMP_ADD_COMPONENT(73, 74, 75, 76),
+		ZVEHCOMP_ADD_COMPONENT(77, 78, 79, 80),
+		ZVEHCOMP_ADD_COMPONENT(81, 82, 83, 84),
+		ZVEHCOMP_ADD_COMPONENT(85, 87, 96, 97),
+		ZVEHCOMP_ADD_COMPONENT(98, 0, 0, 0),
 	},
 	// 414
 	{
-		1008, 1009, 1010, 1025, 1073, 1074, 1075, 1076, 1077, 1078, 1079, 1080, 1081, 1082, 1083,
-		1084, 1085, 1087, 1096, 1097, 1098
+		ZVEHCOMP_ADD_COMPONENT(8, 9, 10, 25),
+		ZVEHCOMP_ADD_COMPONENT(73, 74, 75, 76),
+		ZVEHCOMP_ADD_COMPONENT(77, 78, 79, 80),
+		ZVEHCOMP_ADD_COMPONENT(81, 82, 83, 84),
+		ZVEHCOMP_ADD_COMPONENT(85, 87, 96, 97),
+		ZVEHCOMP_ADD_COMPONENT(98, 0, 0, 0),
 	},
 	// 415
 	{
-		1001, 1003, 1007, 1008, 1009, 1010, 1017, 1018, 1019, 1023, 1025, 1073, 1074, 1075, 1076,
-		1077, 1078, 1079, 1080, 1081, 1082, 1083, 1084, 1085, 1087, 1096, 1097, 1098
+		ZVEHCOMP_ADD_COMPONENT(1, 3, 7, 8),
+		ZVEHCOMP_ADD_COMPONENT(9, 10, 17, 18),
+		ZVEHCOMP_ADD_COMPONENT(19, 23, 25, 73),
+		ZVEHCOMP_ADD_COMPONENT(74, 75, 76, 77),
+		ZVEHCOMP_ADD_COMPONENT(78, 79, 80, 81),
+		ZVEHCOMP_ADD_COMPONENT(82, 83, 84, 85),
+		ZVEHCOMP_ADD_COMPONENT(87, 96, 97, 98),
+		0
 	},
 	// 416
 	{
-		1008, 1009, 1010, 1025, 1073, 1074, 1075, 1076, 1077, 1078, 1079, 1080, 1081, 1082, 1083,
-		1084, 1085, 1087, 1096, 1097, 1098
+		ZVEHCOMP_ADD_COMPONENT(8, 9, 10, 25),
+		ZVEHCOMP_ADD_COMPONENT(73, 74, 75, 76),
+		ZVEHCOMP_ADD_COMPONENT(77, 78, 79, 80),
+		ZVEHCOMP_ADD_COMPONENT(81, 82, 83, 84),
+		ZVEHCOMP_ADD_COMPONENT(85, 87, 96, 97),
+		ZVEHCOMP_ADD_COMPONENT(98, 0, 0, 0),
 	},
 	// 417
 	{
-		0
 	},
 	// 418
 	{
-		1002, 1006, 1008, 1009, 1010, 1016, 1020, 1021, 1025, 1073, 1074, 1075, 1076, 1077, 1078,
-		1079, 1080, 1081, 1082, 1083, 1084, 1085, 1087, 1096, 1097, 1098
+		ZVEHCOMP_ADD_COMPONENT(2, 6, 8, 9),
+		ZVEHCOMP_ADD_COMPONENT(10, 16, 20, 21),
+		ZVEHCOMP_ADD_COMPONENT(25, 73, 74, 75),
+		ZVEHCOMP_ADD_COMPONENT(76, 77, 78, 79),
+		ZVEHCOMP_ADD_COMPONENT(80, 81, 82, 83),
+		ZVEHCOMP_ADD_COMPONENT(84, 85, 87, 96),
+		ZVEHCOMP_ADD_COMPONENT(97, 98, 0, 0),
 	},
 	// 419
 	{
-		1008, 1009, 1010, 1025, 1073, 1074, 1075, 1076, 1077, 1078, 1079, 1080, 1081, 1082, 1083,
-		1084, 1085, 1087, 1096, 1097, 1098
+		ZVEHCOMP_ADD_COMPONENT(8, 9, 10, 25),
+		ZVEHCOMP_ADD_COMPONENT(73, 74, 75, 76),
+		ZVEHCOMP_ADD_COMPONENT(77, 78, 79, 80),
+		ZVEHCOMP_ADD_COMPONENT(81, 82, 83, 84),
+		ZVEHCOMP_ADD_COMPONENT(85, 87, 96, 97),
+		ZVEHCOMP_ADD_COMPONENT(98, 0, 0, 0),
 	},
 	// 420
 	{
-		1001, 1003, 1004, 1005, 1008, 1009, 1010, 1019, 1021, 1025, 1073, 1074, 1075, 1076, 1077,
-		1078, 1079, 1080, 1081, 1082, 1083, 1084, 1085, 1087, 1096, 1097, 1098
+		ZVEHCOMP_ADD_COMPONENT(1, 3, 4, 5),
+		ZVEHCOMP_ADD_COMPONENT(8, 9, 10, 19),
+		ZVEHCOMP_ADD_COMPONENT(21, 25, 73, 74),
+		ZVEHCOMP_ADD_COMPONENT(75, 76, 77, 78),
+		ZVEHCOMP_ADD_COMPONENT(79, 80, 81, 82),
+		ZVEHCOMP_ADD_COMPONENT(83, 84, 85, 87),
+		ZVEHCOMP_ADD_COMPONENT(96, 97, 98, 0),
 	},
 	// 421
 	{
-		1000, 1008, 1009, 1010, 1014, 1016, 1018, 1019, 1020, 1021, 1023, 1025, 1073, 1074, 1075,
-		1076, 1077, 1078, 1079, 1080, 1081, 1082, 1083, 1084, 1085, 1087, 1096, 1097, 1098
+		ZVEHCOMP_ADD_COMPONENT(0, 8, 9, 10),
+		ZVEHCOMP_ADD_COMPONENT(14, 16, 18, 19),
+		ZVEHCOMP_ADD_COMPONENT(20, 21, 23, 25),
+		ZVEHCOMP_ADD_COMPONENT(73, 74, 75, 76),
+		ZVEHCOMP_ADD_COMPONENT(77, 78, 79, 80),
+		ZVEHCOMP_ADD_COMPONENT(81, 82, 83, 84),
+		ZVEHCOMP_ADD_COMPONENT(85, 87, 96, 97),
+		ZVEHCOMP_ADD_COMPONENT(98, 0, 0, 0),
 	},
 	// 422
 	{
-		1007, 1008, 1009, 1010, 1013, 1017, 1019, 1020, 1021, 1025, 1073, 1074, 1075, 1076, 1077,
-		1078, 1079, 1080, 1081, 1082, 1083, 1084, 1085, 1087, 1096, 1097, 1098
+		ZVEHCOMP_ADD_COMPONENT(7, 8, 9, 10),
+		ZVEHCOMP_ADD_COMPONENT(13, 17, 19, 20),
+		ZVEHCOMP_ADD_COMPONENT(21, 25, 73, 74),
+		ZVEHCOMP_ADD_COMPONENT(75, 76, 77, 78),
+		ZVEHCOMP_ADD_COMPONENT(79, 80, 81, 82),
+		ZVEHCOMP_ADD_COMPONENT(83, 84, 85, 87),
+		ZVEHCOMP_ADD_COMPONENT(96, 97, 98, 0),
 	},
 	// 423
 	{
-		1008, 1009, 1010, 1025, 1073, 1074, 1075, 1076, 1077, 1078, 1079, 1080, 1081, 1082, 1083,
-		1084, 1085, 1087, 1096, 1097, 1098
+		ZVEHCOMP_ADD_COMPONENT(8, 9, 10, 25),
+		ZVEHCOMP_ADD_COMPONENT(73, 74, 75, 76),
+		ZVEHCOMP_ADD_COMPONENT(77, 78, 79, 80),
+		ZVEHCOMP_ADD_COMPONENT(81, 82, 83, 84),
+		ZVEHCOMP_ADD_COMPONENT(85, 87, 96, 97),
+		ZVEHCOMP_ADD_COMPONENT(98, 0, 0, 0),
 	},
 	// 424
 	{
-		1008, 1009, 1010, 1025, 1073, 1074, 1075, 1076, 1077, 1078, 1079, 1080, 1081, 1082, 1083,
-		1084, 1085, 1087, 1096, 1097, 1098
+		ZVEHCOMP_ADD_COMPONENT(8, 9, 10, 25),
+		ZVEHCOMP_ADD_COMPONENT(73, 74, 75, 76),
+		ZVEHCOMP_ADD_COMPONENT(77, 78, 79, 80),
+		ZVEHCOMP_ADD_COMPONENT(81, 82, 83, 84),
+		ZVEHCOMP_ADD_COMPONENT(85, 87, 96, 97),
+		ZVEHCOMP_ADD_COMPONENT(98, 0, 0, 0),
 	},
 	// 425
 	{
-		0
 	},
 	// 426
 	{
-		1001, 1003, 1004, 1005, 1006, 1008, 1009, 1010, 1019, 1021, 1025, 1073, 1074, 1075, 1076,
-		1077, 1078, 1079, 1080, 1081, 1082, 1083, 1084, 1085, 1087, 1096, 1097, 1098
+		ZVEHCOMP_ADD_COMPONENT(1, 3, 4, 5),
+		ZVEHCOMP_ADD_COMPONENT(6, 8, 9, 10),
+		ZVEHCOMP_ADD_COMPONENT(19, 21, 25, 73),
+		ZVEHCOMP_ADD_COMPONENT(74, 75, 76, 77),
+		ZVEHCOMP_ADD_COMPONENT(78, 79, 80, 81),
+		ZVEHCOMP_ADD_COMPONENT(82, 83, 84, 85),
+		ZVEHCOMP_ADD_COMPONENT(87, 96, 97, 98),
+		0
 	},
 	// 427
 	{
-		1008, 1009, 1010, 1025, 1073, 1074, 1075, 1076, 1077, 1078, 1079, 1080, 1081, 1082, 1083,
-		1084, 1085, 1087, 1096, 1097, 1098
+		ZVEHCOMP_ADD_COMPONENT(8, 9, 10, 25),
+		ZVEHCOMP_ADD_COMPONENT(73, 74, 75, 76),
+		ZVEHCOMP_ADD_COMPONENT(77, 78, 79, 80),
+		ZVEHCOMP_ADD_COMPONENT(81, 82, 83, 84),
+		ZVEHCOMP_ADD_COMPONENT(85, 87, 96, 97),
+		ZVEHCOMP_ADD_COMPONENT(98, 0, 0, 0),
 	},
 	// 428
 	{
-		1008, 1009, 1010, 1025, 1073, 1074, 1075, 1076, 1077, 1078, 1079, 1080, 1081, 1082, 1083,
-		1084, 1085, 1087, 1096, 1097, 1098
+		ZVEHCOMP_ADD_COMPONENT(8, 9, 10, 25),
+		ZVEHCOMP_ADD_COMPONENT(73, 74, 75, 76),
+		ZVEHCOMP_ADD_COMPONENT(77, 78, 79, 80),
+		ZVEHCOMP_ADD_COMPONENT(81, 82, 83, 84),
+		ZVEHCOMP_ADD_COMPONENT(85, 87, 96, 97),
+		ZVEHCOMP_ADD_COMPONENT(98, 0, 0, 0),
 	},
 	// 429
 	{
-		1008, 1009, 1010, 1025, 1073, 1074, 1075, 1076, 1077, 1078, 1079, 1080, 1081, 1082, 1083,
-		1084, 1085, 1087, 1096, 1097, 1098
+		ZVEHCOMP_ADD_COMPONENT(8, 9, 10, 25),
+		ZVEHCOMP_ADD_COMPONENT(73, 74, 75, 76),
+		ZVEHCOMP_ADD_COMPONENT(77, 78, 79, 80),
+		ZVEHCOMP_ADD_COMPONENT(81, 82, 83, 84),
+		ZVEHCOMP_ADD_COMPONENT(85, 87, 96, 97),
+		ZVEHCOMP_ADD_COMPONENT(98, 0, 0, 0),
 	},
 	// 430
 	{
-		0
 	},
 	// 431
 	{
-		1008, 1009, 1010, 1025, 1073, 1074, 1075, 1076, 1077, 1078, 1079, 1080, 1081, 1082, 1083,
-		1084, 1085, 1087, 1096, 1097, 1098
+		ZVEHCOMP_ADD_COMPONENT(8, 9, 10, 25),
+		ZVEHCOMP_ADD_COMPONENT(73, 74, 75, 76),
+		ZVEHCOMP_ADD_COMPONENT(77, 78, 79, 80),
+		ZVEHCOMP_ADD_COMPONENT(81, 82, 83, 84),
+		ZVEHCOMP_ADD_COMPONENT(85, 87, 96, 97),
+		ZVEHCOMP_ADD_COMPONENT(98, 0, 0, 0),
 	},
 	// 432
 	{
-		1008, 1009, 1010, 1025, 1073, 1074, 1075, 1076, 1077, 1078, 1079, 1080, 1081, 1082, 1083,
-		1084, 1085, 1087, 1096, 1097, 1098
+		ZVEHCOMP_ADD_COMPONENT(8, 9, 10, 25),
+		ZVEHCOMP_ADD_COMPONENT(73, 74, 75, 76),
+		ZVEHCOMP_ADD_COMPONENT(77, 78, 79, 80),
+		ZVEHCOMP_ADD_COMPONENT(81, 82, 83, 84),
+		ZVEHCOMP_ADD_COMPONENT(85, 87, 96, 97),
+		ZVEHCOMP_ADD_COMPONENT(98, 0, 0, 0),
 	},
 	// 433
 	{
-		1008, 1009, 1010, 1025, 1073, 1074, 1075, 1076, 1077, 1078, 1079, 1080, 1081, 1082, 1083,
-		1084, 1085, 1087, 1096, 1097, 1098
+		ZVEHCOMP_ADD_COMPONENT(8, 9, 10, 25),
+		ZVEHCOMP_ADD_COMPONENT(73, 74, 75, 76),
+		ZVEHCOMP_ADD_COMPONENT(77, 78, 79, 80),
+		ZVEHCOMP_ADD_COMPONENT(81, 82, 83, 84),
+		ZVEHCOMP_ADD_COMPONENT(85, 87, 96, 97),
+		ZVEHCOMP_ADD_COMPONENT(98, 0, 0, 0),
 	},
 	// 434
 	{
-		1008, 1009, 1010, 1025, 1073, 1074, 1075, 1076, 1077, 1078, 1079, 1080, 1081, 1082, 1083,
-		1084, 1085, 1087, 1096, 1097, 1098
+		ZVEHCOMP_ADD_COMPONENT(8, 9, 10, 25),
+		ZVEHCOMP_ADD_COMPONENT(73, 74, 75, 76),
+		ZVEHCOMP_ADD_COMPONENT(77, 78, 79, 80),
+		ZVEHCOMP_ADD_COMPONENT(81, 82, 83, 84),
+		ZVEHCOMP_ADD_COMPONENT(85, 87, 96, 97),
+		ZVEHCOMP_ADD_COMPONENT(98, 0, 0, 0),
 	},
 	// 435
 	{
-		1008, 1009, 1010, 1025, 1073, 1074, 1075, 1076, 1077, 1078, 1079, 1080, 1081, 1082, 1083,
-		1084, 1085, 1087, 1096, 1097, 1098
+		ZVEHCOMP_ADD_COMPONENT(8, 9, 10, 25),
+		ZVEHCOMP_ADD_COMPONENT(73, 74, 75, 76),
+		ZVEHCOMP_ADD_COMPONENT(77, 78, 79, 80),
+		ZVEHCOMP_ADD_COMPONENT(81, 82, 83, 84),
+		ZVEHCOMP_ADD_COMPONENT(85, 87, 96, 97),
+		ZVEHCOMP_ADD_COMPONENT(98, 0, 0, 0),
 	},
 	// 436
 	{
-		1001, 1003, 1006, 1007, 1008, 1009, 1010, 1013, 1017, 1019, 1020, 1021, 1022, 1025, 1073,
-		1074, 1075, 1076, 1077, 1078, 1079, 1080, 1081, 1082, 1083, 1084, 1085, 1087, 1096, 1097,
-		1098
+		ZVEHCOMP_ADD_COMPONENT(1, 3, 6, 7),
+		ZVEHCOMP_ADD_COMPONENT(8, 9, 10, 13),
+		ZVEHCOMP_ADD_COMPONENT(17, 19, 20, 21),
+		ZVEHCOMP_ADD_COMPONENT(22, 25, 73, 74),
+		ZVEHCOMP_ADD_COMPONENT(75, 76, 77, 78),
+		ZVEHCOMP_ADD_COMPONENT(79, 80, 81, 82),
+		ZVEHCOMP_ADD_COMPONENT(83, 84, 85, 87),
+		ZVEHCOMP_ADD_COMPONENT(96, 97, 98, 0),
 	},
 	// 437
 	{
-		1008, 1009, 1010, 1025, 1073, 1074, 1075, 1076, 1077, 1078, 1079, 1080, 1081, 1082, 1083,
-		1084, 1085, 1087, 1096, 1097, 1098
+		ZVEHCOMP_ADD_COMPONENT(8, 9, 10, 25),
+		ZVEHCOMP_ADD_COMPONENT(73, 74, 75, 76),
+		ZVEHCOMP_ADD_COMPONENT(77, 78, 79, 80),
+		ZVEHCOMP_ADD_COMPONENT(81, 82, 83, 84),
+		ZVEHCOMP_ADD_COMPONENT(85, 87, 96, 97),
+		ZVEHCOMP_ADD_COMPONENT(98, 0, 0, 0),
 	},
 	// 438
 	{
-		1008, 1009, 1010, 1025, 1073, 1074, 1075, 1076, 1077, 1078, 1079, 1080, 1081, 1082, 1083,
-		1084, 1085, 1087, 1096, 1097, 1098
+		ZVEHCOMP_ADD_COMPONENT(8, 9, 10, 25),
+		ZVEHCOMP_ADD_COMPONENT(73, 74, 75, 76),
+		ZVEHCOMP_ADD_COMPONENT(77, 78, 79, 80),
+		ZVEHCOMP_ADD_COMPONENT(81, 82, 83, 84),
+		ZVEHCOMP_ADD_COMPONENT(85, 87, 96, 97),
+		ZVEHCOMP_ADD_COMPONENT(98, 0, 0, 0),
 	},
 	// 439
 	{
-		1001, 1003, 1007, 1008, 1009, 1010, 1013, 1017, 1023, 1025, 1073, 1074, 1075, 1076, 1077,
-		1078, 1079, 1080, 1081, 1082, 1083, 1084, 1085, 1087, 1096, 1097, 1098, 1142, 1143, 1144,
-		1145
+		ZVEHCOMP_ADD_COMPONENT(1, 3, 7, 8),
+		ZVEHCOMP_ADD_COMPONENT(9, 10, 13, 17),
+		ZVEHCOMP_ADD_COMPONENT(23, 25, 73, 74),
+		ZVEHCOMP_ADD_COMPONENT(75, 76, 77, 78),
+		ZVEHCOMP_ADD_COMPONENT(79, 80, 81, 82),
+		ZVEHCOMP_ADD_COMPONENT(83, 84, 85, 87),
+		ZVEHCOMP_ADD_COMPONENT(96, 97, 98, 142),
+		ZVEHCOMP_ADD_COMPONENT(143, 144, 145, 0),
 	},
 	// 440
 	{
-		1008, 1009, 1010, 1025, 1073, 1074, 1075, 1076, 1077, 1078, 1079, 1080, 1081, 1082, 1083,
-		1084, 1085, 1087, 1096, 1097, 1098
+		ZVEHCOMP_ADD_COMPONENT(8, 9, 10, 25),
+		ZVEHCOMP_ADD_COMPONENT(73, 74, 75, 76),
+		ZVEHCOMP_ADD_COMPONENT(77, 78, 79, 80),
+		ZVEHCOMP_ADD_COMPONENT(81, 82, 83, 84),
+		ZVEHCOMP_ADD_COMPONENT(85, 87, 96, 97),
+		ZVEHCOMP_ADD_COMPONENT(98, 0, 0, 0),
 	},
 	// 441
 	{
-		1008, 1009, 1010, 1025, 1073, 1074, 1075, 1076, 1077, 1078, 1079, 1080, 1081, 1082, 1083,
-		1084, 1085, 1087, 1096, 1097, 1098
+		ZVEHCOMP_ADD_COMPONENT(8, 9, 10, 25),
+		ZVEHCOMP_ADD_COMPONENT(73, 74, 75, 76),
+		ZVEHCOMP_ADD_COMPONENT(77, 78, 79, 80),
+		ZVEHCOMP_ADD_COMPONENT(81, 82, 83, 84),
+		ZVEHCOMP_ADD_COMPONENT(85, 87, 96, 97),
+		ZVEHCOMP_ADD_COMPONENT(98, 0, 0, 0),
 	},
 	// 442
 	{
-		1008, 1009, 1010, 1025, 1073, 1074, 1075, 1076, 1077, 1078, 1079, 1080, 1081, 1082, 1083,
-		1084, 1085, 1087, 1096, 1097, 1098
+		ZVEHCOMP_ADD_COMPONENT(8, 9, 10, 25),
+		ZVEHCOMP_ADD_COMPONENT(73, 74, 75, 76),
+		ZVEHCOMP_ADD_COMPONENT(77, 78, 79, 80),
+		ZVEHCOMP_ADD_COMPONENT(81, 82, 83, 84),
+		ZVEHCOMP_ADD_COMPONENT(85, 87, 96, 97),
+		ZVEHCOMP_ADD_COMPONENT(98, 0, 0, 0),
 	},
 	// 443
 	{
-		1008, 1009, 1010, 1025, 1073, 1074, 1075, 1076, 1077, 1078, 1079, 1080, 1081, 1082, 1083,
-		1084, 1085, 1087, 1096, 1097, 1098
+		ZVEHCOMP_ADD_COMPONENT(8, 9, 10, 25),
+		ZVEHCOMP_ADD_COMPONENT(73, 74, 75, 76),
+		ZVEHCOMP_ADD_COMPONENT(77, 78, 79, 80),
+		ZVEHCOMP_ADD_COMPONENT(81, 82, 83, 84),
+		ZVEHCOMP_ADD_COMPONENT(85, 87, 96, 97),
+		ZVEHCOMP_ADD_COMPONENT(98, 0, 0, 0),
 	},
 	// 444
 	{
-		1008, 1009, 1010, 1025, 1073, 1074, 1075, 1076, 1077, 1078, 1079, 1080, 1081, 1082, 1083,
-		1084, 1085, 1087, 1096, 1097, 1098
+		ZVEHCOMP_ADD_COMPONENT(8, 9, 10, 25),
+		ZVEHCOMP_ADD_COMPONENT(73, 74, 75, 76),
+		ZVEHCOMP_ADD_COMPONENT(77, 78, 79, 80),
+		ZVEHCOMP_ADD_COMPONENT(81, 82, 83, 84),
+		ZVEHCOMP_ADD_COMPONENT(85, 87, 96, 97),
+		ZVEHCOMP_ADD_COMPONENT(98, 0, 0, 0),
 	},
 	// 445
 	{
-		1008, 1009, 1010, 1025, 1073, 1074, 1075, 1076, 1077, 1078, 1079, 1080, 1081, 1082, 1083,
-		1084, 1085, 1087, 1096, 1097, 1098
+		ZVEHCOMP_ADD_COMPONENT(8, 9, 10, 25),
+		ZVEHCOMP_ADD_COMPONENT(73, 74, 75, 76),
+		ZVEHCOMP_ADD_COMPONENT(77, 78, 79, 80),
+		ZVEHCOMP_ADD_COMPONENT(81, 82, 83, 84),
+		ZVEHCOMP_ADD_COMPONENT(85, 87, 96, 97),
+		ZVEHCOMP_ADD_COMPONENT(98, 0, 0, 0),
 	},
 	// 446
 	{
-		0
 	},
 	// 447
 	{
-		0
 	},
 	// 448
 	{
-		1008, 1009, 1010, 1025, 1073, 1074, 1075, 1076, 1077, 1078, 1079, 1080, 1081, 1082, 1083,
-		1084, 1085, 1087, 1096, 1097, 1098
+		ZVEHCOMP_ADD_COMPONENT(8, 9, 10, 25),
+		ZVEHCOMP_ADD_COMPONENT(73, 74, 75, 76),
+		ZVEHCOMP_ADD_COMPONENT(77, 78, 79, 80),
+		ZVEHCOMP_ADD_COMPONENT(81, 82, 83, 84),
+		ZVEHCOMP_ADD_COMPONENT(85, 87, 96, 97),
+		ZVEHCOMP_ADD_COMPONENT(98, 0, 0, 0),
 	},
 	// 449
 	{
-		0
 	},
 	// 450
 	{
-		1008, 1009, 1010, 1025, 1073, 1074, 1075, 1076, 1077, 1078, 1079, 1080, 1081, 1082, 1083,
-		1084, 1085, 1087, 1096, 1097, 1098
+		ZVEHCOMP_ADD_COMPONENT(8, 9, 10, 25),
+		ZVEHCOMP_ADD_COMPONENT(73, 74, 75, 76),
+		ZVEHCOMP_ADD_COMPONENT(77, 78, 79, 80),
+		ZVEHCOMP_ADD_COMPONENT(81, 82, 83, 84),
+		ZVEHCOMP_ADD_COMPONENT(85, 87, 96, 97),
+		ZVEHCOMP_ADD_COMPONENT(98, 0, 0, 0),
 	},
 	// 451
 	{
-		1008, 1009, 1010, 1025, 1073, 1074, 1075, 1076, 1077, 1078, 1079, 1080, 1081, 1082, 1083,
-		1084, 1085, 1087, 1096, 1097, 1098
+		ZVEHCOMP_ADD_COMPONENT(8, 9, 10, 25),
+		ZVEHCOMP_ADD_COMPONENT(73, 74, 75, 76),
+		ZVEHCOMP_ADD_COMPONENT(77, 78, 79, 80),
+		ZVEHCOMP_ADD_COMPONENT(81, 82, 83, 84),
+		ZVEHCOMP_ADD_COMPONENT(85, 87, 96, 97),
+		ZVEHCOMP_ADD_COMPONENT(98, 0, 0, 0),
 	},
 	// 452
 	{
-		0
 	},
 	// 453
 	{
-		0
 	},
 	// 454
 	{
-		0
 	},
 	// 455
 	{
-		1008, 1009, 1010, 1025, 1073, 1074, 1075, 1076, 1077, 1078, 1079, 1080, 1081, 1082, 1083,
-		1084, 1085, 1087, 1096, 1097, 1098
+		ZVEHCOMP_ADD_COMPONENT(8, 9, 10, 25),
+		ZVEHCOMP_ADD_COMPONENT(73, 74, 75, 76),
+		ZVEHCOMP_ADD_COMPONENT(77, 78, 79, 80),
+		ZVEHCOMP_ADD_COMPONENT(81, 82, 83, 84),
+		ZVEHCOMP_ADD_COMPONENT(85, 87, 96, 97),
+		ZVEHCOMP_ADD_COMPONENT(98, 0, 0, 0),
 	},
 	// 456
 	{
-		1008, 1009, 1010, 1025, 1073, 1074, 1075, 1076, 1077, 1078, 1079, 1080, 1081, 1082, 1083,
-		1084, 1085, 1087, 1096, 1097, 1098
+		ZVEHCOMP_ADD_COMPONENT(8, 9, 10, 25),
+		ZVEHCOMP_ADD_COMPONENT(73, 74, 75, 76),
+		ZVEHCOMP_ADD_COMPONENT(77, 78, 79, 80),
+		ZVEHCOMP_ADD_COMPONENT(81, 82, 83, 84),
+		ZVEHCOMP_ADD_COMPONENT(85, 87, 96, 97),
+		ZVEHCOMP_ADD_COMPONENT(98, 0, 0, 0),
 	},
 	// 457
 	{
-		0
 	},
 	// 458
 	{
-		0
 	},
 	// 459
 	{
-		1008, 1009, 1010, 1025, 1073, 1074, 1075, 1076, 1077, 1078, 1079, 1080, 1081, 1082, 1083,
-		1084, 1085, 1087, 1096, 1097, 1098
+		ZVEHCOMP_ADD_COMPONENT(8, 9, 10, 25),
+		ZVEHCOMP_ADD_COMPONENT(73, 74, 75, 76),
+		ZVEHCOMP_ADD_COMPONENT(77, 78, 79, 80),
+		ZVEHCOMP_ADD_COMPONENT(81, 82, 83, 84),
+		ZVEHCOMP_ADD_COMPONENT(85, 87, 96, 97),
+		ZVEHCOMP_ADD_COMPONENT(98, 0, 0, 0),
 	},
 	// 460
 	{
-		0
 	},
 	// 461
 	{
-		0
 	},
 	// 462
 	{
-		0
 	},
 	// 463
 	{
-		0
 	},
 	// 464
 	{
-		0
 	},
 	// 465
 	{
-		0
 	},
 	// 466
 	{
-		1008, 1009, 1010, 1025, 1073, 1074, 1075, 1076, 1077, 1078, 1079, 1080, 1081, 1082, 1083,
-		1084, 1085, 1087, 1096, 1097, 1098
+		ZVEHCOMP_ADD_COMPONENT(8, 9, 10, 25),
+		ZVEHCOMP_ADD_COMPONENT(73, 74, 75, 76),
+		ZVEHCOMP_ADD_COMPONENT(77, 78, 79, 80),
+		ZVEHCOMP_ADD_COMPONENT(81, 82, 83, 84),
+		ZVEHCOMP_ADD_COMPONENT(85, 87, 96, 97),
+		ZVEHCOMP_ADD_COMPONENT(98, 0, 0, 0),
 	},
 	// 467
 	{
-		1008, 1009, 1010, 1025, 1073, 1074, 1075, 1076, 1077, 1078, 1079, 1080, 1081, 1082, 1083,
-		1084, 1085, 1087, 1096, 1097, 1098
+		ZVEHCOMP_ADD_COMPONENT(8, 9, 10, 25),
+		ZVEHCOMP_ADD_COMPONENT(73, 74, 75, 76),
+		ZVEHCOMP_ADD_COMPONENT(77, 78, 79, 80),
+		ZVEHCOMP_ADD_COMPONENT(81, 82, 83, 84),
+		ZVEHCOMP_ADD_COMPONENT(85, 87, 96, 97),
+		ZVEHCOMP_ADD_COMPONENT(98, 0, 0, 0),
 	},
 	// 468
 	{
-		1008, 1009, 1010, 1025, 1073, 1074, 1075, 1076, 1077, 1078, 1079, 1080, 1081, 1082, 1083,
-		1084, 1085, 1087, 1096, 1097, 1098
+		ZVEHCOMP_ADD_COMPONENT(8, 9, 10, 25),
+		ZVEHCOMP_ADD_COMPONENT(73, 74, 75, 76),
+		ZVEHCOMP_ADD_COMPONENT(77, 78, 79, 80),
+		ZVEHCOMP_ADD_COMPONENT(81, 82, 83, 84),
+		ZVEHCOMP_ADD_COMPONENT(85, 87, 96, 97),
+		ZVEHCOMP_ADD_COMPONENT(98, 0, 0, 0),
 	},
 	// 469
 	{
-		0
 	},
 	// 470
 	{
-		1008, 1009, 1010, 1025, 1073, 1074, 1075, 1076, 1077, 1078, 1079, 1080, 1081, 1082, 1083,
-		1084, 1085, 1087, 1096, 1097, 1098
+		ZVEHCOMP_ADD_COMPONENT(8, 9, 10, 25),
+		ZVEHCOMP_ADD_COMPONENT(73, 74, 75, 76),
+		ZVEHCOMP_ADD_COMPONENT(77, 78, 79, 80),
+		ZVEHCOMP_ADD_COMPONENT(81, 82, 83, 84),
+		ZVEHCOMP_ADD_COMPONENT(85, 87, 96, 97),
+		ZVEHCOMP_ADD_COMPONENT(98, 0, 0, 0),
 	},
 	// 471
 	{
-		1008, 1009, 1010, 1025, 1073, 1074, 1075, 1076, 1077, 1078, 1079, 1080, 1081, 1082, 1083,
-		1084, 1085, 1087, 1096, 1097, 1098
+		ZVEHCOMP_ADD_COMPONENT(8, 9, 10, 25),
+		ZVEHCOMP_ADD_COMPONENT(73, 74, 75, 76),
+		ZVEHCOMP_ADD_COMPONENT(77, 78, 79, 80),
+		ZVEHCOMP_ADD_COMPONENT(81, 82, 83, 84),
+		ZVEHCOMP_ADD_COMPONENT(85, 87, 96, 97),
+		ZVEHCOMP_ADD_COMPONENT(98, 0, 0, 0),
 	},
 	// 472
 	{
-		0
 	},
 	// 473
 	{
-		0
 	},
 	// 474
 	{
-		1008, 1009, 1010, 1025, 1073, 1074, 1075, 1076, 1077, 1078, 1079, 1080, 1081, 1082, 1083,
-		1084, 1085, 1087, 1096, 1097, 1098
+		ZVEHCOMP_ADD_COMPONENT(8, 9, 10, 25),
+		ZVEHCOMP_ADD_COMPONENT(73, 74, 75, 76),
+		ZVEHCOMP_ADD_COMPONENT(77, 78, 79, 80),
+		ZVEHCOMP_ADD_COMPONENT(81, 82, 83, 84),
+		ZVEHCOMP_ADD_COMPONENT(85, 87, 96, 97),
+		ZVEHCOMP_ADD_COMPONENT(98, 0, 0, 0),
 	},
 	// 475
 	{
-		1008, 1009, 1010, 1025, 1073, 1074, 1075, 1076, 1077, 1078, 1079, 1080, 1081, 1082, 1083,
-		1084, 1085, 1087, 1096, 1097, 1098
+		ZVEHCOMP_ADD_COMPONENT(8, 9, 10, 25),
+		ZVEHCOMP_ADD_COMPONENT(73, 74, 75, 76),
+		ZVEHCOMP_ADD_COMPONENT(77, 78, 79, 80),
+		ZVEHCOMP_ADD_COMPONENT(81, 82, 83, 84),
+		ZVEHCOMP_ADD_COMPONENT(85, 87, 96, 97),
+		ZVEHCOMP_ADD_COMPONENT(98, 0, 0, 0),
 	},
 	// 476
 	{
-		0
 	},
 	// 477
 	{
-		1006, 1007, 1008, 1009, 1010, 1017, 1018, 1019, 1020, 1021, 1025, 1073, 1074, 1075, 1076,
-		1077, 1078, 1079, 1080, 1081, 1082, 1083, 1084, 1085, 1087, 1096, 1097, 1098
+		ZVEHCOMP_ADD_COMPONENT(6, 7, 8, 9),
+		ZVEHCOMP_ADD_COMPONENT(10, 17, 18, 19),
+		ZVEHCOMP_ADD_COMPONENT(20, 21, 25, 73),
+		ZVEHCOMP_ADD_COMPONENT(74, 75, 76, 77),
+		ZVEHCOMP_ADD_COMPONENT(78, 79, 80, 81),
+		ZVEHCOMP_ADD_COMPONENT(82, 83, 84, 85),
+		ZVEHCOMP_ADD_COMPONENT(87, 96, 97, 98),
+		0
 	},
 	// 478
 	{
-		1004, 1005, 1008, 1009, 1010, 1012, 1013, 1020, 1021, 1022, 1024, 1025, 1073, 1074, 1075,
-		1076, 1077, 1078, 1079, 1080, 1081, 1082, 1083, 1084, 1085, 1087, 1096, 1097, 1098
+		ZVEHCOMP_ADD_COMPONENT(4, 5, 8, 9),
+		ZVEHCOMP_ADD_COMPONENT(10, 12, 13, 20),
+		ZVEHCOMP_ADD_COMPONENT(21, 22, 24, 25),
+		ZVEHCOMP_ADD_COMPONENT(73, 74, 75, 76),
+		ZVEHCOMP_ADD_COMPONENT(77, 78, 79, 80),
+		ZVEHCOMP_ADD_COMPONENT(81, 82, 83, 84),
+		ZVEHCOMP_ADD_COMPONENT(85, 87, 96, 97),
+		ZVEHCOMP_ADD_COMPONENT(98, 0, 0, 0),
 	},
 	// 479
 	{
-		1008, 1009, 1010, 1025, 1073, 1074, 1075, 1076, 1077, 1078, 1079, 1080, 1081, 1082, 1083,
-		1084, 1085, 1087, 1096, 1097, 1098
+		ZVEHCOMP_ADD_COMPONENT(8, 9, 10, 25),
+		ZVEHCOMP_ADD_COMPONENT(73, 74, 75, 76),
+		ZVEHCOMP_ADD_COMPONENT(77, 78, 79, 80),
+		ZVEHCOMP_ADD_COMPONENT(81, 82, 83, 84),
+		ZVEHCOMP_ADD_COMPONENT(85, 87, 96, 97),
+		ZVEHCOMP_ADD_COMPONENT(98, 0, 0, 0),
 	},
 	// 480
 	{
-		1008, 1009, 1010, 1025, 1073, 1074, 1075, 1076, 1077, 1078, 1079, 1080, 1081, 1082, 1083,
-		1084, 1085, 1087, 1096, 1097, 1098
+		ZVEHCOMP_ADD_COMPONENT(8, 9, 10, 25),
+		ZVEHCOMP_ADD_COMPONENT(73, 74, 75, 76),
+		ZVEHCOMP_ADD_COMPONENT(77, 78, 79, 80),
+		ZVEHCOMP_ADD_COMPONENT(81, 82, 83, 84),
+		ZVEHCOMP_ADD_COMPONENT(85, 87, 96, 97),
+		ZVEHCOMP_ADD_COMPONENT(98, 0, 0, 0),
 	},
 	// 481
 	{
-		1008, 1009, 1010, 1025, 1073, 1074, 1075, 1076, 1077, 1078, 1079, 1080, 1081, 1082, 1083,
-		1084, 1085, 1087, 1096, 1097, 1098
+		ZVEHCOMP_ADD_COMPONENT(8, 9, 10, 25),
+		ZVEHCOMP_ADD_COMPONENT(73, 74, 75, 76),
+		ZVEHCOMP_ADD_COMPONENT(77, 78, 79, 80),
+		ZVEHCOMP_ADD_COMPONENT(81, 82, 83, 84),
+		ZVEHCOMP_ADD_COMPONENT(85, 87, 96, 97),
+		ZVEHCOMP_ADD_COMPONENT(98, 0, 0, 0),
 	},
 	// 482
 	{
-		1008, 1009, 1010, 1025, 1073, 1074, 1075, 1076, 1077, 1078, 1079, 1080, 1081, 1082, 1083,
-		1084, 1085, 1087, 1096, 1097, 1098
+		ZVEHCOMP_ADD_COMPONENT(8, 9, 10, 25),
+		ZVEHCOMP_ADD_COMPONENT(73, 74, 75, 76),
+		ZVEHCOMP_ADD_COMPONENT(77, 78, 79, 80),
+		ZVEHCOMP_ADD_COMPONENT(81, 82, 83, 84),
+		ZVEHCOMP_ADD_COMPONENT(85, 87, 96, 97),
+		ZVEHCOMP_ADD_COMPONENT(98, 0, 0, 0),
 	},
 	// 483
 	{
-		1008, 1009, 1010, 1025, 1073, 1074, 1075, 1076, 1077, 1078, 1079, 1080, 1081, 1082, 1083,
-		1084, 1085, 1087, 1096, 1097, 1098
+		ZVEHCOMP_ADD_COMPONENT(8, 9, 10, 25),
+		ZVEHCOMP_ADD_COMPONENT(73, 74, 75, 76),
+		ZVEHCOMP_ADD_COMPONENT(77, 78, 79, 80),
+		ZVEHCOMP_ADD_COMPONENT(81, 82, 83, 84),
+		ZVEHCOMP_ADD_COMPONENT(85, 87, 96, 97),
+		ZVEHCOMP_ADD_COMPONENT(98, 0, 0, 0),
 	},
 	// 484
 	{
-		1008, 1009, 1010, 1025, 1073, 1074, 1075, 1076, 1077, 1078, 1079, 1080, 1081, 1082, 1083,
-		1084, 1085, 1087, 1096, 1097, 1098
+		ZVEHCOMP_ADD_COMPONENT(8, 9, 10, 25),
+		ZVEHCOMP_ADD_COMPONENT(73, 74, 75, 76),
+		ZVEHCOMP_ADD_COMPONENT(77, 78, 79, 80),
+		ZVEHCOMP_ADD_COMPONENT(81, 82, 83, 84),
+		ZVEHCOMP_ADD_COMPONENT(85, 87, 96, 97),
+		ZVEHCOMP_ADD_COMPONENT(98, 0, 0, 0),
 	},
 	// 485
 	{
-		1008, 1009, 1010, 1025, 1073, 1074, 1075, 1076, 1077, 1078, 1079, 1080, 1081, 1082, 1083,
-		1084, 1085, 1087, 1096, 1097, 1098
+		ZVEHCOMP_ADD_COMPONENT(8, 9, 10, 25),
+		ZVEHCOMP_ADD_COMPONENT(73, 74, 75, 76),
+		ZVEHCOMP_ADD_COMPONENT(77, 78, 79, 80),
+		ZVEHCOMP_ADD_COMPONENT(81, 82, 83, 84),
+		ZVEHCOMP_ADD_COMPONENT(85, 87, 96, 97),
+		ZVEHCOMP_ADD_COMPONENT(98, 0, 0, 0),
 	},
 	// 486
 	{
-		1008, 1009, 1010, 1025, 1073, 1074, 1075, 1076, 1077, 1078, 1079, 1080, 1081, 1082, 1083,
-		1084, 1085, 1087, 1096, 1097, 1098
+		ZVEHCOMP_ADD_COMPONENT(8, 9, 10, 25),
+		ZVEHCOMP_ADD_COMPONENT(73, 74, 75, 76),
+		ZVEHCOMP_ADD_COMPONENT(77, 78, 79, 80),
+		ZVEHCOMP_ADD_COMPONENT(81, 82, 83, 84),
+		ZVEHCOMP_ADD_COMPONENT(85, 87, 96, 97),
+		ZVEHCOMP_ADD_COMPONENT(98, 0, 0, 0),
 	},
 	// 487
 	{
-		0
 	},
 	// 488
 	{
-		0
 	},
 	// 489
 	{
-		1000, 1002, 1004, 1005, 1006, 1008, 1009, 1010, 1013, 1016, 1018, 1019, 1020, 1024, 1025,
-		1073, 1074, 1075, 1076, 1077, 1078, 1079, 1080, 1081, 1082, 1083, 1084, 1085, 1087, 1096,
-		1097, 1098
+		ZVEHCOMP_ADD_COMPONENT(0, 2, 4, 5),
+		ZVEHCOMP_ADD_COMPONENT(6, 8, 9, 10),
+		ZVEHCOMP_ADD_COMPONENT(13, 16, 18, 19),
+		ZVEHCOMP_ADD_COMPONENT(20, 24, 25, 73),
+		ZVEHCOMP_ADD_COMPONENT(74, 75, 76, 77),
+		ZVEHCOMP_ADD_COMPONENT(78, 79, 80, 81),
+		ZVEHCOMP_ADD_COMPONENT(82, 83, 84, 85),
+		ZVEHCOMP_ADD_COMPONENT(87, 96, 97, 98),
+		0
 	},
 	// 490
 	{
-		1008, 1009, 1010, 1025, 1073, 1074, 1075, 1076, 1077, 1078, 1079, 1080, 1081, 1082, 1083,
-		1084, 1085, 1087, 1096, 1097, 1098
+		ZVEHCOMP_ADD_COMPONENT(8, 9, 10, 25),
+		ZVEHCOMP_ADD_COMPONENT(73, 74, 75, 76),
+		ZVEHCOMP_ADD_COMPONENT(77, 78, 79, 80),
+		ZVEHCOMP_ADD_COMPONENT(81, 82, 83, 84),
+		ZVEHCOMP_ADD_COMPONENT(85, 87, 96, 97),
+		ZVEHCOMP_ADD_COMPONENT(98, 0, 0, 0),
 	},
 	// 491
 	{
-		1003, 1007, 1008, 1009, 1010, 1014, 1017, 1018, 1019, 1020, 1021, 1023, 1025, 1073, 1074,
-		1075, 1076, 1077, 1078, 1079, 1080, 1081, 1082, 1083, 1084, 1085, 1087, 1096, 1097, 1098,
-		1142, 1143, 1144, 1145
+		ZVEHCOMP_ADD_COMPONENT(3, 7, 8, 9),
+		ZVEHCOMP_ADD_COMPONENT(10, 14, 17, 18),
+		ZVEHCOMP_ADD_COMPONENT(19, 20, 21, 23),
+		ZVEHCOMP_ADD_COMPONENT(25, 73, 74, 75),
+		ZVEHCOMP_ADD_COMPONENT(76, 77, 78, 79),
+		ZVEHCOMP_ADD_COMPONENT(80, 81, 82, 83),
+		ZVEHCOMP_ADD_COMPONENT(84, 85, 87, 96),
+		ZVEHCOMP_ADD_COMPONENT(97, 98, 142, 143),
+		ZVEHCOMP_ADD_COMPONENT(144, 145, 0, 0),
 	},
 	// 492
 	{
-		1000, 1004, 1005, 1006, 1008, 1009, 1010, 1016, 1025, 1073, 1074, 1075, 1076, 1077, 1078,
-		1079, 1080, 1081, 1082, 1083, 1084, 1085, 1087, 1096, 1097, 1098
+		ZVEHCOMP_ADD_COMPONENT(0, 4, 5, 6),
+		ZVEHCOMP_ADD_COMPONENT(8, 9, 10, 16),
+		ZVEHCOMP_ADD_COMPONENT(25, 73, 74, 75),
+		ZVEHCOMP_ADD_COMPONENT(76, 77, 78, 79),
+		ZVEHCOMP_ADD_COMPONENT(80, 81, 82, 83),
+		ZVEHCOMP_ADD_COMPONENT(84, 85, 87, 96),
+		ZVEHCOMP_ADD_COMPONENT(97, 98, 0, 0),
 	},
 	// 493
 	{
-		0
 	},
 	// 494
 	{
-		1008, 1009, 1010, 1025, 1073, 1074, 1075, 1076, 1077, 1078, 1079, 1080, 1081, 1082, 1083,
-		1084, 1085, 1087, 1096, 1097, 1098
+		ZVEHCOMP_ADD_COMPONENT(8, 9, 10, 25),
+		ZVEHCOMP_ADD_COMPONENT(73, 74, 75, 76),
+		ZVEHCOMP_ADD_COMPONENT(77, 78, 79, 80),
+		ZVEHCOMP_ADD_COMPONENT(81, 82, 83, 84),
+		ZVEHCOMP_ADD_COMPONENT(85, 87, 96, 97),
+		ZVEHCOMP_ADD_COMPONENT(98, 0, 0, 0),
 	},
 	// 495
 	{
-		1008, 1009, 1010, 1025, 1073, 1074, 1075, 1076, 1077, 1078, 1079, 1080, 1081, 1082, 1083,
-		1084, 1085, 1087, 1096, 1097, 1098
+		ZVEHCOMP_ADD_COMPONENT(8, 9, 10, 25),
+		ZVEHCOMP_ADD_COMPONENT(73, 74, 75, 76),
+		ZVEHCOMP_ADD_COMPONENT(77, 78, 79, 80),
+		ZVEHCOMP_ADD_COMPONENT(81, 82, 83, 84),
+		ZVEHCOMP_ADD_COMPONENT(85, 87, 96, 97),
+		ZVEHCOMP_ADD_COMPONENT(98, 0, 0, 0),
 	},
 	// 496
 	{
-		1001, 1002, 1003, 1006, 1007, 1008, 1009, 1010, 1011, 1017, 1019, 1020, 1023, 1025, 1073,
-		1074, 1075, 1076, 1077, 1078, 1079, 1080, 1081, 1082, 1083, 1084, 1085, 1087, 1096, 1097,
-		1098, 1142, 1143
+		ZVEHCOMP_ADD_COMPONENT(1, 2, 3, 6),
+		ZVEHCOMP_ADD_COMPONENT(7, 8, 9, 10),
+		ZVEHCOMP_ADD_COMPONENT(11, 17, 19, 20),
+		ZVEHCOMP_ADD_COMPONENT(23, 25, 73, 74),
+		ZVEHCOMP_ADD_COMPONENT(75, 76, 77, 78),
+		ZVEHCOMP_ADD_COMPONENT(79, 80, 81, 82),
+		ZVEHCOMP_ADD_COMPONENT(83, 84, 85, 87),
+		ZVEHCOMP_ADD_COMPONENT(96, 97, 98, 142),
+		ZVEHCOMP_ADD_COMPONENT(143, 0, 0, 0),
 	},
 	// 497
 	{
-		0
 	},
 	// 498
 	{
-		1008, 1009, 1010, 1025, 1073, 1074, 1075, 1076, 1077, 1078, 1079, 1080, 1081, 1082, 1083,
-		1084, 1085, 1087, 1096, 1097, 1098
+		ZVEHCOMP_ADD_COMPONENT(8, 9, 10, 25),
+		ZVEHCOMP_ADD_COMPONENT(73, 74, 75, 76),
+		ZVEHCOMP_ADD_COMPONENT(77, 78, 79, 80),
+		ZVEHCOMP_ADD_COMPONENT(81, 82, 83, 84),
+		ZVEHCOMP_ADD_COMPONENT(85, 87, 96, 97),
+		ZVEHCOMP_ADD_COMPONENT(98, 0, 0, 0),
 	},
 	// 499
 	{
-		1008, 1009, 1010, 1025, 1073, 1074, 1075, 1076, 1077, 1078, 1079, 1080, 1081, 1082, 1083,
-		1084, 1085, 1087, 1096, 1097, 1098
+		ZVEHCOMP_ADD_COMPONENT(8, 9, 10, 25),
+		ZVEHCOMP_ADD_COMPONENT(73, 74, 75, 76),
+		ZVEHCOMP_ADD_COMPONENT(77, 78, 79, 80),
+		ZVEHCOMP_ADD_COMPONENT(81, 82, 83, 84),
+		ZVEHCOMP_ADD_COMPONENT(85, 87, 96, 97),
+		ZVEHCOMP_ADD_COMPONENT(98, 0, 0, 0),
 	},
 	// 500
 	{
-		1008, 1009, 1010, 1013, 1019, 1020, 1021, 1024, 1025, 1073, 1074, 1075, 1076, 1077, 1078,
-		1079, 1080, 1081, 1082, 1083, 1084, 1085, 1087, 1096, 1097, 1098
+		ZVEHCOMP_ADD_COMPONENT(8, 9, 10, 13),
+		ZVEHCOMP_ADD_COMPONENT(19, 20, 21, 24),
+		ZVEHCOMP_ADD_COMPONENT(25, 73, 74, 75),
+		ZVEHCOMP_ADD_COMPONENT(76, 77, 78, 79),
+		ZVEHCOMP_ADD_COMPONENT(80, 81, 82, 83),
+		ZVEHCOMP_ADD_COMPONENT(84, 85, 87, 96),
+		ZVEHCOMP_ADD_COMPONENT(97, 98, 0, 0),
 	},
 	// 501
 	{
-		0
 	},
 	// 502
 	{
-		1008, 1009, 1010, 1025, 1073, 1074, 1075, 1076, 1077, 1078, 1079, 1080, 1081, 1082, 1083,
-		1084, 1085, 1087, 1096, 1097, 1098
+		ZVEHCOMP_ADD_COMPONENT(8, 9, 10, 25),
+		ZVEHCOMP_ADD_COMPONENT(73, 74, 75, 76),
+		ZVEHCOMP_ADD_COMPONENT(77, 78, 79, 80),
+		ZVEHCOMP_ADD_COMPONENT(81, 82, 83, 84),
+		ZVEHCOMP_ADD_COMPONENT(85, 87, 96, 97),
+		ZVEHCOMP_ADD_COMPONENT(98, 0, 0, 0),
 	},
 	// 503
 	{
-		1008, 1009, 1010, 1025, 1073, 1074, 1075, 1076, 1077, 1078, 1079, 1080, 1081, 1082, 1083,
-		1084, 1085, 1087, 1096, 1097, 1098
+		ZVEHCOMP_ADD_COMPONENT(8, 9, 10, 25),
+		ZVEHCOMP_ADD_COMPONENT(73, 74, 75, 76),
+		ZVEHCOMP_ADD_COMPONENT(77, 78, 79, 80),
+		ZVEHCOMP_ADD_COMPONENT(81, 82, 83, 84),
+		ZVEHCOMP_ADD_COMPONENT(85, 87, 96, 97),
+		ZVEHCOMP_ADD_COMPONENT(98, 0, 0, 0),
 	},
 	// 504
 	{
-		1008, 1009, 1010, 1025, 1073, 1074, 1075, 1076, 1077, 1078, 1079, 1080, 1081, 1082, 1083,
-		1084, 1085, 1087, 1096, 1097, 1098
+		ZVEHCOMP_ADD_COMPONENT(8, 9, 10, 25),
+		ZVEHCOMP_ADD_COMPONENT(73, 74, 75, 76),
+		ZVEHCOMP_ADD_COMPONENT(77, 78, 79, 80),
+		ZVEHCOMP_ADD_COMPONENT(81, 82, 83, 84),
+		ZVEHCOMP_ADD_COMPONENT(85, 87, 96, 97),
+		ZVEHCOMP_ADD_COMPONENT(98, 0, 0, 0),
 	},
 	// 505
 	{
-		1008, 1009, 1010, 1025, 1073, 1074, 1075, 1076, 1077, 1078, 1079, 1080, 1081, 1082, 1083,
-		1084, 1085, 1087, 1096, 1097, 1098
+		ZVEHCOMP_ADD_COMPONENT(8, 9, 10, 25),
+		ZVEHCOMP_ADD_COMPONENT(73, 74, 75, 76),
+		ZVEHCOMP_ADD_COMPONENT(77, 78, 79, 80),
+		ZVEHCOMP_ADD_COMPONENT(81, 82, 83, 84),
+		ZVEHCOMP_ADD_COMPONENT(85, 87, 96, 97),
+		ZVEHCOMP_ADD_COMPONENT(98, 0, 0, 0),
 	},
 	// 506
 	{
-		1008, 1009, 1010, 1025, 1073, 1074, 1075, 1076, 1077, 1078, 1079, 1080, 1081, 1082, 1083,
-		1084, 1085, 1087, 1096, 1097, 1098
+		ZVEHCOMP_ADD_COMPONENT(8, 9, 10, 25),
+		ZVEHCOMP_ADD_COMPONENT(73, 74, 75, 76),
+		ZVEHCOMP_ADD_COMPONENT(77, 78, 79, 80),
+		ZVEHCOMP_ADD_COMPONENT(81, 82, 83, 84),
+		ZVEHCOMP_ADD_COMPONENT(85, 87, 96, 97),
+		ZVEHCOMP_ADD_COMPONENT(98, 0, 0, 0),
 	},
 	// 507
 	{
-		1008, 1009, 1010, 1025, 1073, 1074, 1075, 1076, 1077, 1078, 1079, 1080, 1081, 1082, 1083,
-		1084, 1085, 1087, 1096, 1097, 1098
+		ZVEHCOMP_ADD_COMPONENT(8, 9, 10, 25),
+		ZVEHCOMP_ADD_COMPONENT(73, 74, 75, 76),
+		ZVEHCOMP_ADD_COMPONENT(77, 78, 79, 80),
+		ZVEHCOMP_ADD_COMPONENT(81, 82, 83, 84),
+		ZVEHCOMP_ADD_COMPONENT(85, 87, 96, 97),
+		ZVEHCOMP_ADD_COMPONENT(98, 0, 0, 0),
 	},
 	// 508
 	{
-		1008, 1009, 1010, 1025, 1073, 1074, 1075, 1076, 1077, 1078, 1079, 1080, 1081, 1082, 1083,
-		1084, 1085, 1087, 1096, 1097, 1098
+		ZVEHCOMP_ADD_COMPONENT(8, 9, 10, 25),
+		ZVEHCOMP_ADD_COMPONENT(73, 74, 75, 76),
+		ZVEHCOMP_ADD_COMPONENT(77, 78, 79, 80),
+		ZVEHCOMP_ADD_COMPONENT(81, 82, 83, 84),
+		ZVEHCOMP_ADD_COMPONENT(85, 87, 96, 97),
+		ZVEHCOMP_ADD_COMPONENT(98, 0, 0, 0),
 	},
 	// 509
 	{
-		1008, 1009, 1010, 1025, 1073, 1074, 1075, 1076, 1077, 1078, 1079, 1080, 1081, 1082, 1083,
-		1084, 1085, 1087, 1096, 1097, 1098
+		ZVEHCOMP_ADD_COMPONENT(8, 9, 10, 25),
+		ZVEHCOMP_ADD_COMPONENT(73, 74, 75, 76),
+		ZVEHCOMP_ADD_COMPONENT(77, 78, 79, 80),
+		ZVEHCOMP_ADD_COMPONENT(81, 82, 83, 84),
+		ZVEHCOMP_ADD_COMPONENT(85, 87, 96, 97),
+		ZVEHCOMP_ADD_COMPONENT(98, 0, 0, 0),
 	},
 	// 510
 	{
-		1008, 1009, 1010, 1025, 1073, 1074, 1075, 1076, 1077, 1078, 1079, 1080, 1081, 1082, 1083,
-		1084, 1085, 1087, 1096, 1097, 1098
+		ZVEHCOMP_ADD_COMPONENT(8, 9, 10, 25),
+		ZVEHCOMP_ADD_COMPONENT(73, 74, 75, 76),
+		ZVEHCOMP_ADD_COMPONENT(77, 78, 79, 80),
+		ZVEHCOMP_ADD_COMPONENT(81, 82, 83, 84),
+		ZVEHCOMP_ADD_COMPONENT(85, 87, 96, 97),
+		ZVEHCOMP_ADD_COMPONENT(98, 0, 0, 0),
 	},
 	// 511
 	{
-		0
 	},
 	// 512
 	{
-		0
 	},
 	// 513
 	{
-		0
 	},
 	// 514
 	{
-		1008, 1009, 1010, 1025, 1073, 1074, 1075, 1076, 1077, 1078, 1079, 1080, 1081, 1082, 1083,
-		1084, 1085, 1087, 1096, 1097, 1098
+		ZVEHCOMP_ADD_COMPONENT(8, 9, 10, 25),
+		ZVEHCOMP_ADD_COMPONENT(73, 74, 75, 76),
+		ZVEHCOMP_ADD_COMPONENT(77, 78, 79, 80),
+		ZVEHCOMP_ADD_COMPONENT(81, 82, 83, 84),
+		ZVEHCOMP_ADD_COMPONENT(85, 87, 96, 97),
+		ZVEHCOMP_ADD_COMPONENT(98, 0, 0, 0),
 	},
 	// 515
 	{
-		1008, 1009, 1010, 1025, 1073, 1074, 1075, 1076, 1077, 1078, 1079, 1080, 1081, 1082, 1083,
-		1084, 1085, 1087, 1096, 1097, 1098
+		ZVEHCOMP_ADD_COMPONENT(8, 9, 10, 25),
+		ZVEHCOMP_ADD_COMPONENT(73, 74, 75, 76),
+		ZVEHCOMP_ADD_COMPONENT(77, 78, 79, 80),
+		ZVEHCOMP_ADD_COMPONENT(81, 82, 83, 84),
+		ZVEHCOMP_ADD_COMPONENT(85, 87, 96, 97),
+		ZVEHCOMP_ADD_COMPONENT(98, 0, 0, 0),
 	},
 	// 516
 	{
-		1000, 1002, 1004, 1007, 1008, 1009, 1010, 1015, 1016, 1017, 1018, 1019, 1020, 1021, 1025,
-		1073, 1074, 1075, 1076, 1077, 1078, 1079, 1080, 1081, 1082, 1083, 1084, 1085, 1087, 1096,
-		1097, 1098
+		ZVEHCOMP_ADD_COMPONENT(0, 2, 4, 7),
+		ZVEHCOMP_ADD_COMPONENT(8, 9, 10, 15),
+		ZVEHCOMP_ADD_COMPONENT(16, 17, 18, 19),
+		ZVEHCOMP_ADD_COMPONENT(20, 21, 25, 73),
+		ZVEHCOMP_ADD_COMPONENT(74, 75, 76, 77),
+		ZVEHCOMP_ADD_COMPONENT(78, 79, 80, 81),
+		ZVEHCOMP_ADD_COMPONENT(82, 83, 84, 85),
+		ZVEHCOMP_ADD_COMPONENT(87, 96, 97, 98),
+		0
 	},
 	// 517
 	{
-		1002, 1003, 1007, 1008, 1009, 1010, 1016, 1017, 1018, 1019, 1020, 1023, 1025, 1073, 1074,
-		1075, 1076, 1077, 1078, 1079, 1080, 1081, 1082, 1083, 1084, 1085, 1087, 1096, 1097, 1098,
-		1142, 1143, 1144, 1145
+		ZVEHCOMP_ADD_COMPONENT(2, 3, 7, 8),
+		ZVEHCOMP_ADD_COMPONENT(9, 10, 16, 17),
+		ZVEHCOMP_ADD_COMPONENT(18, 19, 20, 23),
+		ZVEHCOMP_ADD_COMPONENT(25, 73, 74, 75),
+		ZVEHCOMP_ADD_COMPONENT(76, 77, 78, 79),
+		ZVEHCOMP_ADD_COMPONENT(80, 81, 82, 83),
+		ZVEHCOMP_ADD_COMPONENT(84, 85, 87, 96),
+		ZVEHCOMP_ADD_COMPONENT(97, 98, 142, 143),
+		ZVEHCOMP_ADD_COMPONENT(144, 145, 0, 0),
 	},
 	// 518
 	{
-		1001, 1003, 1005, 1006, 1007, 1008, 1009, 1010, 1013, 1017, 1018, 1020, 1023, 1025, 1073,
-		1074, 1075, 1076, 1077, 1078, 1079, 1080, 1081, 1082, 1083, 1084, 1085, 1087, 1096, 1097,
-		1098, 1142, 1143, 1144, 1145
+		ZVEHCOMP_ADD_COMPONENT(1, 3, 5, 6),
+		ZVEHCOMP_ADD_COMPONENT(7, 8, 9, 10),
+		ZVEHCOMP_ADD_COMPONENT(13, 17, 18, 20),
+		ZVEHCOMP_ADD_COMPONENT(23, 25, 73, 74),
+		ZVEHCOMP_ADD_COMPONENT(75, 76, 77, 78),
+		ZVEHCOMP_ADD_COMPONENT(79, 80, 81, 82),
+		ZVEHCOMP_ADD_COMPONENT(83, 84, 85, 87),
+		ZVEHCOMP_ADD_COMPONENT(96, 97, 98, 142),
+		ZVEHCOMP_ADD_COMPONENT(143, 144, 145, 0),
 	},
 	// 519
 	{
-		0
 	},
 	// 520
 	{
-		0
 	},
 	// 521
 	{
-		0
 	},
 	// 522
 	{
-		0
 	},
 	// 523
 	{
-		0
 	},
 	// 524
 	{
-		1008, 1009, 1010, 1025, 1073, 1074, 1075, 1076, 1077, 1078, 1079, 1080, 1081, 1082, 1083,
-		1084, 1085, 1087, 1096, 1097, 1098
+		ZVEHCOMP_ADD_COMPONENT(8, 9, 10, 25),
+		ZVEHCOMP_ADD_COMPONENT(73, 74, 75, 76),
+		ZVEHCOMP_ADD_COMPONENT(77, 78, 79, 80),
+		ZVEHCOMP_ADD_COMPONENT(81, 82, 83, 84),
+		ZVEHCOMP_ADD_COMPONENT(85, 87, 96, 97),
+		ZVEHCOMP_ADD_COMPONENT(98, 0, 0, 0),
 	},
 	// 525
 	{
-		1008, 1009, 1010, 1025, 1073, 1074, 1075, 1076, 1077, 1078, 1079, 1080, 1081, 1082, 1083,
-		1084, 1085, 1087, 1096, 1097, 1098
+		ZVEHCOMP_ADD_COMPONENT(8, 9, 10, 25),
+		ZVEHCOMP_ADD_COMPONENT(73, 74, 75, 76),
+		ZVEHCOMP_ADD_COMPONENT(77, 78, 79, 80),
+		ZVEHCOMP_ADD_COMPONENT(81, 82, 83, 84),
+		ZVEHCOMP_ADD_COMPONENT(85, 87, 96, 97),
+		ZVEHCOMP_ADD_COMPONENT(98, 0, 0, 0),
 	},
 	// 526
 	{
-		1008, 1009, 1010, 1025, 1073, 1074, 1075, 1076, 1077, 1078, 1079, 1080, 1081, 1082, 1083,
-		1084, 1085, 1087, 1096, 1097, 1098
+		ZVEHCOMP_ADD_COMPONENT(8, 9, 10, 25),
+		ZVEHCOMP_ADD_COMPONENT(73, 74, 75, 76),
+		ZVEHCOMP_ADD_COMPONENT(77, 78, 79, 80),
+		ZVEHCOMP_ADD_COMPONENT(81, 82, 83, 84),
+		ZVEHCOMP_ADD_COMPONENT(85, 87, 96, 97),
+		ZVEHCOMP_ADD_COMPONENT(98, 0, 0, 0),
 	},
 	// 527
 	{
-		1001, 1007, 1008, 1009, 1010, 1014, 1015, 1017, 1018, 1020, 1021, 1025, 1073, 1074, 1075,
-		1076, 1077, 1078, 1079, 1080, 1081, 1082, 1083, 1084, 1085, 1087, 1096, 1097, 1098
+		ZVEHCOMP_ADD_COMPONENT(1, 7, 8, 9),
+		ZVEHCOMP_ADD_COMPONENT(10, 14, 15, 17),
+		ZVEHCOMP_ADD_COMPONENT(18, 20, 21, 25),
+		ZVEHCOMP_ADD_COMPONENT(73, 74, 75, 76),
+		ZVEHCOMP_ADD_COMPONENT(77, 78, 79, 80),
+		ZVEHCOMP_ADD_COMPONENT(81, 82, 83, 84),
+		ZVEHCOMP_ADD_COMPONENT(85, 87, 96, 97),
+		ZVEHCOMP_ADD_COMPONENT(98, 0, 0, 0),
 	},
 	// 528
 	{
-		1008, 1009, 1010, 1025, 1073, 1074, 1075, 1076, 1077, 1078, 1079, 1080, 1081, 1082, 1083,
-		1084, 1085, 1087, 1096, 1097, 1098
+		ZVEHCOMP_ADD_COMPONENT(8, 9, 10, 25),
+		ZVEHCOMP_ADD_COMPONENT(73, 74, 75, 76),
+		ZVEHCOMP_ADD_COMPONENT(77, 78, 79, 80),
+		ZVEHCOMP_ADD_COMPONENT(81, 82, 83, 84),
+		ZVEHCOMP_ADD_COMPONENT(85, 87, 96, 97),
+		ZVEHCOMP_ADD_COMPONENT(98, 0, 0, 0),
 	},
 	// 529
 	{
-		1001, 1003, 1006, 1007, 1008, 1009, 1010, 1011, 1012, 1017, 1018, 1019, 1020, 1023, 1025,
-		1073, 1074, 1075, 1076, 1077, 1078, 1079, 1080, 1081, 1082, 1083, 1084, 1085, 1087, 1096,
-		1097, 1098
+		ZVEHCOMP_ADD_COMPONENT(1, 3, 6, 7),
+		ZVEHCOMP_ADD_COMPONENT(8, 9, 10, 11),
+		ZVEHCOMP_ADD_COMPONENT(12, 17, 18, 19),
+		ZVEHCOMP_ADD_COMPONENT(20, 23, 25, 73),
+		ZVEHCOMP_ADD_COMPONENT(74, 75, 76, 77),
+		ZVEHCOMP_ADD_COMPONENT(78, 79, 80, 81),
+		ZVEHCOMP_ADD_COMPONENT(82, 83, 84, 85),
+		ZVEHCOMP_ADD_COMPONENT(87, 96, 97, 98),
+		0
 	},
 	// 530
 	{
-		1008, 1009, 1010, 1025, 1073, 1074, 1075, 1076, 1077, 1078, 1079, 1080, 1081, 1082, 1083,
-		1084, 1085, 1087, 1096, 1097, 1098
+		ZVEHCOMP_ADD_COMPONENT(8, 9, 10, 25),
+		ZVEHCOMP_ADD_COMPONENT(73, 74, 75, 76),
+		ZVEHCOMP_ADD_COMPONENT(77, 78, 79, 80),
+		ZVEHCOMP_ADD_COMPONENT(81, 82, 83, 84),
+		ZVEHCOMP_ADD_COMPONENT(85, 87, 96, 97),
+		ZVEHCOMP_ADD_COMPONENT(98, 0, 0, 0),
 	},
 	// 531
 	{
-		1008, 1009, 1010, 1025, 1073, 1074, 1075, 1076, 1077, 1078, 1079, 1080, 1081, 1082, 1083,
-		1084, 1085, 1087, 1096, 1097, 1098
+		ZVEHCOMP_ADD_COMPONENT(8, 9, 10, 25),
+		ZVEHCOMP_ADD_COMPONENT(73, 74, 75, 76),
+		ZVEHCOMP_ADD_COMPONENT(77, 78, 79, 80),
+		ZVEHCOMP_ADD_COMPONENT(81, 82, 83, 84),
+		ZVEHCOMP_ADD_COMPONENT(85, 87, 96, 97),
+		ZVEHCOMP_ADD_COMPONENT(98, 0, 0, 0),
 	},
 	// 532
 	{
-		1008, 1009, 1010, 1025, 1073, 1074, 1075, 1076, 1077, 1078, 1079, 1080, 1081, 1082, 1083,
-		1084, 1085, 1087, 1096, 1097, 1098
+		ZVEHCOMP_ADD_COMPONENT(8, 9, 10, 25),
+		ZVEHCOMP_ADD_COMPONENT(73, 74, 75, 76),
+		ZVEHCOMP_ADD_COMPONENT(77, 78, 79, 80),
+		ZVEHCOMP_ADD_COMPONENT(81, 82, 83, 84),
+		ZVEHCOMP_ADD_COMPONENT(85, 87, 96, 97),
+		ZVEHCOMP_ADD_COMPONENT(98, 0, 0, 0),
 	},
 	// 533
 	{
-		1008, 1009, 1010, 1025, 1073, 1074, 1075, 1076, 1077, 1078, 1079, 1080, 1081, 1082, 1083,
-		1084, 1085, 1087, 1096, 1097, 1098
+		ZVEHCOMP_ADD_COMPONENT(8, 9, 10, 25),
+		ZVEHCOMP_ADD_COMPONENT(73, 74, 75, 76),
+		ZVEHCOMP_ADD_COMPONENT(77, 78, 79, 80),
+		ZVEHCOMP_ADD_COMPONENT(81, 82, 83, 84),
+		ZVEHCOMP_ADD_COMPONENT(85, 87, 96, 97),
+		ZVEHCOMP_ADD_COMPONENT(98, 0, 0, 0),
 	},
 	// 534
 	{
-		1008, 1009, 1010, 1025, 1073, 1074, 1075, 1076, 1077, 1078, 1079, 1080, 1081, 1082, 1083,
-		1084, 1085, 1087, 1096, 1097, 1098, 1100, 1101, 1106, 1122, 1123, 1124, 1125, 1126, 1127,
-		1178, 1179, 1180, 1185
+		ZVEHCOMP_ADD_COMPONENT(8, 9, 10, 25),
+		ZVEHCOMP_ADD_COMPONENT(73, 74, 75, 76),
+		ZVEHCOMP_ADD_COMPONENT(77, 78, 79, 80),
+		ZVEHCOMP_ADD_COMPONENT(81, 82, 83, 84),
+		ZVEHCOMP_ADD_COMPONENT(85, 87, 96, 97),
+		ZVEHCOMP_ADD_COMPONENT(98, 100, 101, 106),
+		ZVEHCOMP_ADD_COMPONENT(122, 123, 124, 125),
+		ZVEHCOMP_ADD_COMPONENT(126, 127, 178, 179),
+		ZVEHCOMP_ADD_COMPONENT(180, 185, 0, 0),
 	},
 	// 535
 	{
-		1008, 1009, 1010, 1025, 1073, 1074, 1075, 1076, 1077, 1078, 1079, 1080, 1081, 1082, 1083,
-		1084, 1085, 1087, 1096, 1097, 1098, 1109, 1110, 1113, 1114, 1115, 1116, 1117, 1118, 1119,
-		1120, 1121
+		ZVEHCOMP_ADD_COMPONENT(8, 9, 10, 25),
+		ZVEHCOMP_ADD_COMPONENT(73, 74, 75, 76),
+		ZVEHCOMP_ADD_COMPONENT(77, 78, 79, 80),
+		ZVEHCOMP_ADD_COMPONENT(81, 82, 83, 84),
+		ZVEHCOMP_ADD_COMPONENT(85, 87, 96, 97),
+		ZVEHCOMP_ADD_COMPONENT(98, 109, 110, 113),
+		ZVEHCOMP_ADD_COMPONENT(114, 115, 116, 117),
+		ZVEHCOMP_ADD_COMPONENT(118, 119, 120, 121),
+		0
 	},
 	// 536
 	{
-		1008, 1009, 1010, 1025, 1073, 1074, 1075, 1076, 1077, 1078, 1079, 1080, 1081, 1082, 1083,
-		1084, 1085, 1087, 1096, 1097, 1098, 1103, 1104, 1105, 1107, 1108, 1128, 1181, 1182, 1183,
-		1184
+		ZVEHCOMP_ADD_COMPONENT(8, 9, 10, 25),
+		ZVEHCOMP_ADD_COMPONENT(73, 74, 75, 76),
+		ZVEHCOMP_ADD_COMPONENT(77, 78, 79, 80),
+		ZVEHCOMP_ADD_COMPONENT(81, 82, 83, 84),
+		ZVEHCOMP_ADD_COMPONENT(85, 87, 96, 97),
+		ZVEHCOMP_ADD_COMPONENT(98, 103, 104, 105),
+		ZVEHCOMP_ADD_COMPONENT(107, 108, 128, 181),
+		ZVEHCOMP_ADD_COMPONENT(182, 183, 184, 0),
 	},
 	// 537
 	{
-		0
 	},
 	// 538
 	{
-		0
 	},
 	// 539
 	{
-		0
 	},
 	// 540
 	{
-		1001, 1004, 1006, 1007, 1008, 1009, 1010, 1017, 1018, 1019, 1020, 1023, 1024, 1025, 1073,
-		1074, 1075, 1076, 1077, 1078, 1079, 1080, 1081, 1082, 1083, 1084, 1085, 1087, 1096, 1097,
-		1098, 1142, 1143, 1144, 1145
+		ZVEHCOMP_ADD_COMPONENT(1, 4, 6, 7),
+		ZVEHCOMP_ADD_COMPONENT(8, 9, 10, 17),
+		ZVEHCOMP_ADD_COMPONENT(18, 19, 20, 23),
+		ZVEHCOMP_ADD_COMPONENT(24, 25, 73, 74),
+		ZVEHCOMP_ADD_COMPONENT(75, 76, 77, 78),
+		ZVEHCOMP_ADD_COMPONENT(79, 80, 81, 82),
+		ZVEHCOMP_ADD_COMPONENT(83, 84, 85, 87),
+		ZVEHCOMP_ADD_COMPONENT(96, 97, 98, 142),
+		ZVEHCOMP_ADD_COMPONENT(143, 144, 145, 0),
 	},
 	// 541
 	{
-		1008, 1009, 1010, 1025, 1073, 1074, 1075, 1076, 1077, 1078, 1079, 1080, 1081, 1082, 1083,
-		1084, 1085, 1087, 1096, 1097, 1098
+		ZVEHCOMP_ADD_COMPONENT(8, 9, 10, 25),
+		ZVEHCOMP_ADD_COMPONENT(73, 74, 75, 76),
+		ZVEHCOMP_ADD_COMPONENT(77, 78, 79, 80),
+		ZVEHCOMP_ADD_COMPONENT(81, 82, 83, 84),
+		ZVEHCOMP_ADD_COMPONENT(85, 87, 96, 97),
+		ZVEHCOMP_ADD_COMPONENT(98, 0, 0, 0),
 	},
 	// 542
 	{
-		1008, 1009, 1010, 1014, 1015, 1018, 1019, 1020, 1021, 1025, 1073, 1074, 1075, 1076, 1077,
-		1078, 1079, 1080, 1081, 1082, 1083, 1084, 1085, 1087, 1096, 1097, 1098, 1144, 1145
+		ZVEHCOMP_ADD_COMPONENT(8, 9, 10, 14),
+		ZVEHCOMP_ADD_COMPONENT(15, 18, 19, 20),
+		ZVEHCOMP_ADD_COMPONENT(21, 25, 73, 74),
+		ZVEHCOMP_ADD_COMPONENT(75, 76, 77, 78),
+		ZVEHCOMP_ADD_COMPONENT(79, 80, 81, 82),
+		ZVEHCOMP_ADD_COMPONENT(83, 84, 85, 87),
+		ZVEHCOMP_ADD_COMPONENT(96, 97, 98, 144),
+		ZVEHCOMP_ADD_COMPONENT(145, 0, 0, 0),
 	},
 	// 543
 	{
-		1008, 1009, 1010, 1025, 1073, 1074, 1075, 1076, 1077, 1078, 1079, 1080, 1081, 1082, 1083,
-		1084, 1085, 1087, 1096, 1097, 1098
+		ZVEHCOMP_ADD_COMPONENT(8, 9, 10, 25),
+		ZVEHCOMP_ADD_COMPONENT(73, 74, 75, 76),
+		ZVEHCOMP_ADD_COMPONENT(77, 78, 79, 80),
+		ZVEHCOMP_ADD_COMPONENT(81, 82, 83, 84),
+		ZVEHCOMP_ADD_COMPONENT(85, 87, 96, 97),
+		ZVEHCOMP_ADD_COMPONENT(98, 0, 0, 0),
 	},
 	// 544
 	{
-		1008, 1009, 1010, 1025, 1073, 1074, 1075, 1076, 1077, 1078, 1079, 1080, 1081, 1082, 1083,
-		1084, 1085, 1087, 1096, 1097, 1098
+		ZVEHCOMP_ADD_COMPONENT(8, 9, 10, 25),
+		ZVEHCOMP_ADD_COMPONENT(73, 74, 75, 76),
+		ZVEHCOMP_ADD_COMPONENT(77, 78, 79, 80),
+		ZVEHCOMP_ADD_COMPONENT(81, 82, 83, 84),
+		ZVEHCOMP_ADD_COMPONENT(85, 87, 96, 97),
+		ZVEHCOMP_ADD_COMPONENT(98, 0, 0, 0),
 	},
 	// 545
 	{
-		1008, 1009, 1010, 1025, 1073, 1074, 1075, 1076, 1077, 1078, 1079, 1080, 1081, 1082, 1083,
-		1084, 1085, 1087, 1096, 1097, 1098
+		ZVEHCOMP_ADD_COMPONENT(8, 9, 10, 25),
+		ZVEHCOMP_ADD_COMPONENT(73, 74, 75, 76),
+		ZVEHCOMP_ADD_COMPONENT(77, 78, 79, 80),
+		ZVEHCOMP_ADD_COMPONENT(81, 82, 83, 84),
+		ZVEHCOMP_ADD_COMPONENT(85, 87, 96, 97),
+		ZVEHCOMP_ADD_COMPONENT(98, 0, 0, 0),
 	},
 	// 546
 	{
-		1001, 1002, 1004, 1006, 1007, 1008, 1009, 1010, 1017, 1018, 1019, 1023, 1024, 1025, 1073,
-		1074, 1075, 1076, 1077, 1078, 1079, 1080, 1081, 1082, 1083, 1084, 1085, 1087, 1096, 1097,
-		1098, 1142, 1143, 1144, 1145
+		ZVEHCOMP_ADD_COMPONENT(1, 2, 4, 6),
+		ZVEHCOMP_ADD_COMPONENT(7, 8, 9, 10),
+		ZVEHCOMP_ADD_COMPONENT(17, 18, 19, 23),
+		ZVEHCOMP_ADD_COMPONENT(24, 25, 73, 74),
+		ZVEHCOMP_ADD_COMPONENT(75, 76, 77, 78),
+		ZVEHCOMP_ADD_COMPONENT(79, 80, 81, 82),
+		ZVEHCOMP_ADD_COMPONENT(83, 84, 85, 87),
+		ZVEHCOMP_ADD_COMPONENT(96, 97, 98, 142),
+		ZVEHCOMP_ADD_COMPONENT(143, 144, 145, 0),
 	},
 	// 547
 	{
-		1000, 1003, 1008, 1009, 1010, 1016, 1018, 1019, 1020, 1021, 1025, 1073, 1074, 1075, 1076,
-		1077, 1078, 1079, 1080, 1081, 1082, 1083, 1084, 1085, 1087, 1096, 1097, 1098, 1142, 1143
+		ZVEHCOMP_ADD_COMPONENT(0, 3, 8, 9),
+		ZVEHCOMP_ADD_COMPONENT(10, 16, 18, 19),
+		ZVEHCOMP_ADD_COMPONENT(20, 21, 25, 73),
+		ZVEHCOMP_ADD_COMPONENT(74, 75, 76, 77),
+		ZVEHCOMP_ADD_COMPONENT(78, 79, 80, 81),
+		ZVEHCOMP_ADD_COMPONENT(82, 83, 84, 85),
+		ZVEHCOMP_ADD_COMPONENT(87, 96, 97, 98),
+		ZVEHCOMP_ADD_COMPONENT(142, 143, 0, 0),
 	},
 	// 548
 	{
-		0
 	},
 	// 549
 	{
-		1001, 1003, 1007, 1008, 1009, 1010, 1011, 1012, 1017, 1018, 1019, 1020, 1023, 1025, 1073,
-		1074, 1075, 1076, 1077, 1078, 1079, 1080, 1081, 1082, 1083, 1084, 1085, 1087, 1096, 1097,
-		1098, 1142, 1143, 1144, 1145
+		ZVEHCOMP_ADD_COMPONENT(1, 3, 7, 8),
+		ZVEHCOMP_ADD_COMPONENT(9, 10, 11, 12),
+		ZVEHCOMP_ADD_COMPONENT(17, 18, 19, 20),
+		ZVEHCOMP_ADD_COMPONENT(23, 25, 73, 74),
+		ZVEHCOMP_ADD_COMPONENT(75, 76, 77, 78),
+		ZVEHCOMP_ADD_COMPONENT(79, 80, 81, 82),
+		ZVEHCOMP_ADD_COMPONENT(83, 84, 85, 87),
+		ZVEHCOMP_ADD_COMPONENT(96, 97, 98, 142),
+		ZVEHCOMP_ADD_COMPONENT(143, 144, 145, 0),
 	},
 	// 550
 	{
-		1001, 1003, 1004, 1005, 1006, 1008, 1009, 1010, 1018, 1019, 1020, 1023, 1025, 1073, 1074,
-		1075, 1076, 1077, 1078, 1079, 1080, 1081, 1082, 1083, 1084, 1085, 1087, 1096, 1097, 1098,
-		1142, 1143, 1144, 1145
+		ZVEHCOMP_ADD_COMPONENT(1, 3, 4, 5),
+		ZVEHCOMP_ADD_COMPONENT(6, 8, 9, 10),
+		ZVEHCOMP_ADD_COMPONENT(18, 19, 20, 23),
+		ZVEHCOMP_ADD_COMPONENT(25, 73, 74, 75),
+		ZVEHCOMP_ADD_COMPONENT(76, 77, 78, 79),
+		ZVEHCOMP_ADD_COMPONENT(80, 81, 82, 83),
+		ZVEHCOMP_ADD_COMPONENT(84, 85, 87, 96),
+		ZVEHCOMP_ADD_COMPONENT(97, 98, 142, 143),
+		ZVEHCOMP_ADD_COMPONENT(144, 145, 0, 0),
 	},
 	// 551
 	{
-		1002, 1003, 1005, 1006, 1008, 1009, 1010, 1016, 1018, 1019, 1020, 1021, 1023, 1025, 1073,
-		1074, 1075, 1076, 1077, 1078, 1079, 1080, 1081, 1082, 1083, 1084, 1085, 1087, 1096, 1097,
-		1098
+		ZVEHCOMP_ADD_COMPONENT(2, 3, 5, 6),
+		ZVEHCOMP_ADD_COMPONENT(8, 9, 10, 16),
+		ZVEHCOMP_ADD_COMPONENT(18, 19, 20, 21),
+		ZVEHCOMP_ADD_COMPONENT(23, 25, 73, 74),
+		ZVEHCOMP_ADD_COMPONENT(75, 76, 77, 78),
+		ZVEHCOMP_ADD_COMPONENT(79, 80, 81, 82),
+		ZVEHCOMP_ADD_COMPONENT(83, 84, 85, 87),
+		ZVEHCOMP_ADD_COMPONENT(96, 97, 98, 0),
 	},
 	// 552
 	{
-		1008, 1009, 1010, 1025, 1073, 1074, 1075, 1076, 1077, 1078, 1079, 1080, 1081, 1082, 1083,
-		1084, 1085, 1087, 1096, 1097, 1098
+		ZVEHCOMP_ADD_COMPONENT(8, 9, 10, 25),
+		ZVEHCOMP_ADD_COMPONENT(73, 74, 75, 76),
+		ZVEHCOMP_ADD_COMPONENT(77, 78, 79, 80),
+		ZVEHCOMP_ADD_COMPONENT(81, 82, 83, 84),
+		ZVEHCOMP_ADD_COMPONENT(85, 87, 96, 97),
+		ZVEHCOMP_ADD_COMPONENT(98, 0, 0, 0),
 	},
 	// 553
 	{
-		0
 	},
 	// 554
 	{
-		1008, 1009, 1010, 1025, 1073, 1074, 1075, 1076, 1077, 1078, 1079, 1080, 1081, 1082, 1083,
-		1084, 1085, 1087, 1096, 1097, 1098
+		ZVEHCOMP_ADD_COMPONENT(8, 9, 10, 25),
+		ZVEHCOMP_ADD_COMPONENT(73, 74, 75, 76),
+		ZVEHCOMP_ADD_COMPONENT(77, 78, 79, 80),
+		ZVEHCOMP_ADD_COMPONENT(81, 82, 83, 84),
+		ZVEHCOMP_ADD_COMPONENT(85, 87, 96, 97),
+		ZVEHCOMP_ADD_COMPONENT(98, 0, 0, 0),
 	},
 	// 555
 	{
-		1008, 1009, 1010, 1025, 1073, 1074, 1075, 1076, 1077, 1078, 1079, 1080, 1081, 1082, 1083,
-		1084, 1085, 1087, 1096, 1097, 1098
+		ZVEHCOMP_ADD_COMPONENT(8, 9, 10, 25),
+		ZVEHCOMP_ADD_COMPONENT(73, 74, 75, 76),
+		ZVEHCOMP_ADD_COMPONENT(77, 78, 79, 80),
+		ZVEHCOMP_ADD_COMPONENT(81, 82, 83, 84),
+		ZVEHCOMP_ADD_COMPONENT(85, 87, 96, 97),
+		ZVEHCOMP_ADD_COMPONENT(98, 0, 0, 0),
 	},
 	// 556
 	{
-		1008, 1009, 1010, 1025, 1073, 1074, 1075, 1076, 1077, 1078, 1079, 1080, 1081, 1082, 1083,
-		1084, 1085, 1087, 1096, 1097, 1098
+		ZVEHCOMP_ADD_COMPONENT(8, 9, 10, 25),
+		ZVEHCOMP_ADD_COMPONENT(73, 74, 75, 76),
+		ZVEHCOMP_ADD_COMPONENT(77, 78, 79, 80),
+		ZVEHCOMP_ADD_COMPONENT(81, 82, 83, 84),
+		ZVEHCOMP_ADD_COMPONENT(85, 87, 96, 97),
+		ZVEHCOMP_ADD_COMPONENT(98, 0, 0, 0),
 	},
 	// 557
 	{
-		1008, 1009, 1010, 1025, 1073, 1074, 1075, 1076, 1077, 1078, 1079, 1080, 1081, 1082, 1083,
-		1084, 1085, 1087, 1096, 1097, 1098
+		ZVEHCOMP_ADD_COMPONENT(8, 9, 10, 25),
+		ZVEHCOMP_ADD_COMPONENT(73, 74, 75, 76),
+		ZVEHCOMP_ADD_COMPONENT(77, 78, 79, 80),
+		ZVEHCOMP_ADD_COMPONENT(81, 82, 83, 84),
+		ZVEHCOMP_ADD_COMPONENT(85, 87, 96, 97),
+		ZVEHCOMP_ADD_COMPONENT(98, 0, 0, 0),
 	},
 	// 558
 	{
-		1008, 1009, 1010, 1025, 1073, 1074, 1075, 1076, 1077, 1078, 1079, 1080, 1081, 1082, 1083,
-		1084, 1085, 1087, 1088, 1089, 1090, 1091, 1092, 1093, 1094, 1095, 1096, 1097, 1098, 1163,
-		1164, 1165, 1166, 1167, 1168
+		ZVEHCOMP_ADD_COMPONENT(8, 9, 10, 25),
+		ZVEHCOMP_ADD_COMPONENT(73, 74, 75, 76),
+		ZVEHCOMP_ADD_COMPONENT(77, 78, 79, 80),
+		ZVEHCOMP_ADD_COMPONENT(81, 82, 83, 84),
+		ZVEHCOMP_ADD_COMPONENT(85, 87, 88, 89),
+		ZVEHCOMP_ADD_COMPONENT(90, 91, 92, 93),
+		ZVEHCOMP_ADD_COMPONENT(94, 95, 96, 97),
+		ZVEHCOMP_ADD_COMPONENT(98, 163, 164, 165),
+		ZVEHCOMP_ADD_COMPONENT(166, 167, 168, 0),
 	},
 	// 559
 	{
-		1008, 1009, 1010, 1025, 1065, 1066, 1067, 1068, 1069, 1070, 1071, 1072, 1073, 1074, 1075,
-		1076, 1077, 1078, 1079, 1080, 1081, 1082, 1083, 1084, 1085, 1087, 1096, 1097, 1098, 1158,
-		1159, 1160, 1161, 1162, 1173
+		ZVEHCOMP_ADD_COMPONENT(8, 9, 10, 25),
+		ZVEHCOMP_ADD_COMPONENT(65, 66, 67, 68),
+		ZVEHCOMP_ADD_COMPONENT(69, 70, 71, 72),
+		ZVEHCOMP_ADD_COMPONENT(73, 74, 75, 76),
+		ZVEHCOMP_ADD_COMPONENT(77, 78, 79, 80),
+		ZVEHCOMP_ADD_COMPONENT(81, 82, 83, 84),
+		ZVEHCOMP_ADD_COMPONENT(85, 87, 96, 97),
+		ZVEHCOMP_ADD_COMPONENT(98, 158, 159, 160),
+		ZVEHCOMP_ADD_COMPONENT(161, 162, 173, 0),
 	},
 	// 560
 	{
-		1008, 1009, 1010, 1025, 1026, 1027, 1028, 1029, 1030, 1031, 1032, 1033, 1073, 1074, 1075,
-		1076, 1077, 1078, 1079, 1080, 1081, 1082, 1083, 1084, 1085, 1087, 1096, 1097, 1098, 1138,
-		1139, 1140, 1141, 1169, 1170
+		ZVEHCOMP_ADD_COMPONENT(8, 9, 10, 25),
+		ZVEHCOMP_ADD_COMPONENT(26, 27, 28, 29),
+		ZVEHCOMP_ADD_COMPONENT(30, 31, 32, 33),
+		ZVEHCOMP_ADD_COMPONENT(73, 74, 75, 76),
+		ZVEHCOMP_ADD_COMPONENT(77, 78, 79, 80),
+		ZVEHCOMP_ADD_COMPONENT(81, 82, 83, 84),
+		ZVEHCOMP_ADD_COMPONENT(85, 87, 96, 97),
+		ZVEHCOMP_ADD_COMPONENT(98, 138, 139, 140),
+		ZVEHCOMP_ADD_COMPONENT(141, 169, 170, 0),
 	},
 	// 561
 	{
-		1008, 1009, 1010, 1025, 1055, 1056, 1057, 1058, 1059, 1060, 1061, 1062, 1063, 1064, 1073,
-		1074, 1075, 1076, 1077, 1078, 1079, 1080, 1081, 1082, 1083, 1084, 1085, 1087, 1096, 1097,
-		1098, 1154, 1155, 1156, 1157
+		ZVEHCOMP_ADD_COMPONENT(8, 9, 10, 25),
+		ZVEHCOMP_ADD_COMPONENT(55, 56, 57, 58),
+		ZVEHCOMP_ADD_COMPONENT(59, 60, 61, 62),
+		ZVEHCOMP_ADD_COMPONENT(63, 64, 73, 74),
+		ZVEHCOMP_ADD_COMPONENT(75, 76, 77, 78),
+		ZVEHCOMP_ADD_COMPONENT(79, 80, 81, 82),
+		ZVEHCOMP_ADD_COMPONENT(83, 84, 85, 87),
+		ZVEHCOMP_ADD_COMPONENT(96, 97, 98, 154),
+		ZVEHCOMP_ADD_COMPONENT(155, 156, 157, 0),
 	},
 	// 562
 	{
-		1008, 1009, 1010, 1025, 1034, 1035, 1036, 1037, 1038, 1039, 1040, 1041, 1073, 1074, 1075,
-		1076, 1077, 1078, 1079, 1080, 1081, 1082, 1083, 1084, 1085, 1087, 1096, 1097, 1098, 1146,
-		1147, 1148, 1149, 1171, 1172
+		ZVEHCOMP_ADD_COMPONENT(8, 9, 10, 25),
+		ZVEHCOMP_ADD_COMPONENT(34, 35, 36, 37),
+		ZVEHCOMP_ADD_COMPONENT(38, 39, 40, 41),
+		ZVEHCOMP_ADD_COMPONENT(73, 74, 75, 76),
+		ZVEHCOMP_ADD_COMPONENT(77, 78, 79, 80),
+		ZVEHCOMP_ADD_COMPONENT(81, 82, 83, 84),
+		ZVEHCOMP_ADD_COMPONENT(85, 87, 96, 97),
+		ZVEHCOMP_ADD_COMPONENT(98, 146, 147, 148),
+		ZVEHCOMP_ADD_COMPONENT(149, 171, 172, 0),
 	},
 	// 563
 	{
-		0
 	},
 	// 564
 	{
-		0
 	},
 	// 565
 	{
-		1008, 1009, 1010, 1025, 1045, 1046, 1047, 1048, 1049, 1050, 1051, 1052, 1053, 1054, 1073,
-		1074, 1075, 1076, 1077, 1078, 1079, 1080, 1081, 1082, 1083, 1084, 1085, 1087, 1096, 1097,
-		1098, 1150, 1151, 1152, 1153
+		ZVEHCOMP_ADD_COMPONENT(8, 9, 10, 25),
+		ZVEHCOMP_ADD_COMPONENT(45, 46, 47, 48),
+		ZVEHCOMP_ADD_COMPONENT(49, 50, 51, 52),
+		ZVEHCOMP_ADD_COMPONENT(53, 54, 73, 74),
+		ZVEHCOMP_ADD_COMPONENT(75, 76, 77, 78),
+		ZVEHCOMP_ADD_COMPONENT(79, 80, 81, 82),
+		ZVEHCOMP_ADD_COMPONENT(83, 84, 85, 87),
+		ZVEHCOMP_ADD_COMPONENT(96, 97, 98, 150),
+		ZVEHCOMP_ADD_COMPONENT(151, 152, 153, 0),
 	},
 	// 566
 	{
-		1008, 1009, 1010, 1025, 1073, 1074, 1075, 1076, 1077, 1078, 1079, 1080, 1081, 1082, 1083,
-		1084, 1085, 1087, 1096, 1097, 1098
+		ZVEHCOMP_ADD_COMPONENT(8, 9, 10, 25),
+		ZVEHCOMP_ADD_COMPONENT(73, 74, 75, 76),
+		ZVEHCOMP_ADD_COMPONENT(77, 78, 79, 80),
+		ZVEHCOMP_ADD_COMPONENT(81, 82, 83, 84),
+		ZVEHCOMP_ADD_COMPONENT(85, 87, 96, 97),
+		ZVEHCOMP_ADD_COMPONENT(98, 0, 0, 0),
 	},
 	// 567
 	{
-		1008, 1009, 1010, 1025, 1073, 1074, 1075, 1076, 1077, 1078, 1079, 1080, 1081, 1082, 1083,
-		1084, 1085, 1087, 1096, 1097, 1098, 1102, 1129, 1130, 1131, 1132, 1133, 1186, 1187, 1188,
-		1189
+		ZVEHCOMP_ADD_COMPONENT(8, 9, 10, 25),
+		ZVEHCOMP_ADD_COMPONENT(73, 74, 75, 76),
+		ZVEHCOMP_ADD_COMPONENT(77, 78, 79, 80),
+		ZVEHCOMP_ADD_COMPONENT(81, 82, 83, 84),
+		ZVEHCOMP_ADD_COMPONENT(85, 87, 96, 97),
+		ZVEHCOMP_ADD_COMPONENT(98, 102, 129, 130),
+		ZVEHCOMP_ADD_COMPONENT(131, 132, 133, 186),
+		ZVEHCOMP_ADD_COMPONENT(187, 188, 189, 0),
 	},
 	// 568
 	{
-		1008, 1009, 1010, 1025, 1073, 1074, 1075, 1076, 1077, 1078, 1079, 1080, 1081, 1082, 1083,
-		1084, 1085, 1087, 1096, 1097, 1098
+		ZVEHCOMP_ADD_COMPONENT(8, 9, 10, 25),
+		ZVEHCOMP_ADD_COMPONENT(73, 74, 75, 76),
+		ZVEHCOMP_ADD_COMPONENT(77, 78, 79, 80),
+		ZVEHCOMP_ADD_COMPONENT(81, 82, 83, 84),
+		ZVEHCOMP_ADD_COMPONENT(85, 87, 96, 97),
+		ZVEHCOMP_ADD_COMPONENT(98, 0, 0, 0),
 	},
 	// 569
 	{
-		0
 	},
 	// 570
 	{
-		0
 	},
 	// 571
 	{
-		1008, 1009, 1010, 1025, 1073, 1074, 1075, 1076, 1077, 1078, 1079, 1080, 1081, 1082, 1083,
-		1084, 1085, 1087, 1096, 1097, 1098
+		ZVEHCOMP_ADD_COMPONENT(8, 9, 10, 25),
+		ZVEHCOMP_ADD_COMPONENT(73, 74, 75, 76),
+		ZVEHCOMP_ADD_COMPONENT(77, 78, 79, 80),
+		ZVEHCOMP_ADD_COMPONENT(81, 82, 83, 84),
+		ZVEHCOMP_ADD_COMPONENT(85, 87, 96, 97),
+		ZVEHCOMP_ADD_COMPONENT(98, 0, 0, 0),
 	},
 	// 572
 	{
-		1008, 1009, 1010, 1025, 1073, 1074, 1075, 1076, 1077, 1078, 1079, 1080, 1081, 1082, 1083,
-		1084, 1085, 1087, 1096, 1097, 1098
+		ZVEHCOMP_ADD_COMPONENT(8, 9, 10, 25),
+		ZVEHCOMP_ADD_COMPONENT(73, 74, 75, 76),
+		ZVEHCOMP_ADD_COMPONENT(77, 78, 79, 80),
+		ZVEHCOMP_ADD_COMPONENT(81, 82, 83, 84),
+		ZVEHCOMP_ADD_COMPONENT(85, 87, 96, 97),
+		ZVEHCOMP_ADD_COMPONENT(98, 0, 0, 0),
 	},
 	// 573
 	{
-		1008, 1009, 1010, 1025, 1073, 1074, 1075, 1076, 1077, 1078, 1079, 1080, 1081, 1082, 1083,
-		1084, 1085, 1087, 1096, 1097, 1098
+		ZVEHCOMP_ADD_COMPONENT(8, 9, 10, 25),
+		ZVEHCOMP_ADD_COMPONENT(73, 74, 75, 76),
+		ZVEHCOMP_ADD_COMPONENT(77, 78, 79, 80),
+		ZVEHCOMP_ADD_COMPONENT(81, 82, 83, 84),
+		ZVEHCOMP_ADD_COMPONENT(85, 87, 96, 97),
+		ZVEHCOMP_ADD_COMPONENT(98, 0, 0, 0),
 	},
 	// 574
 	{
-		1008, 1009, 1010, 1025, 1073, 1074, 1075, 1076, 1077, 1078, 1079, 1080, 1081, 1082, 1083,
-		1084, 1085, 1087, 1096, 1097, 1098
+		ZVEHCOMP_ADD_COMPONENT(8, 9, 10, 25),
+		ZVEHCOMP_ADD_COMPONENT(73, 74, 75, 76),
+		ZVEHCOMP_ADD_COMPONENT(77, 78, 79, 80),
+		ZVEHCOMP_ADD_COMPONENT(81, 82, 83, 84),
+		ZVEHCOMP_ADD_COMPONENT(85, 87, 96, 97),
+		ZVEHCOMP_ADD_COMPONENT(98, 0, 0, 0),
 	},
 	// 575
 	{
-		1008, 1009, 1010, 1025, 1042, 1043, 1044, 1073, 1074, 1075, 1076, 1077, 1078, 1079, 1080,
-		1081, 1082, 1083, 1084, 1085, 1087, 1096, 1097, 1098, 1099, 1174, 1175, 1176, 1177
+		ZVEHCOMP_ADD_COMPONENT(8, 9, 10, 25),
+		ZVEHCOMP_ADD_COMPONENT(42, 43, 44, 73),
+		ZVEHCOMP_ADD_COMPONENT(74, 75, 76, 77),
+		ZVEHCOMP_ADD_COMPONENT(78, 79, 80, 81),
+		ZVEHCOMP_ADD_COMPONENT(82, 83, 84, 85),
+		ZVEHCOMP_ADD_COMPONENT(87, 96, 97, 98),
+		ZVEHCOMP_ADD_COMPONENT(99, 174, 175, 176),
+		ZVEHCOMP_ADD_COMPONENT(177, 0, 0, 0),
 	},
 	// 576
 	{
-		1008, 1009, 1010, 1025, 1073, 1074, 1075, 1076, 1077, 1078, 1079, 1080, 1081, 1082, 1083,
-		1084, 1085, 1087, 1096, 1097, 1098, 1134, 1135, 1136, 1137, 1190, 1191, 1192, 1193
+		ZVEHCOMP_ADD_COMPONENT(8, 9, 10, 25),
+		ZVEHCOMP_ADD_COMPONENT(73, 74, 75, 76),
+		ZVEHCOMP_ADD_COMPONENT(77, 78, 79, 80),
+		ZVEHCOMP_ADD_COMPONENT(81, 82, 83, 84),
+		ZVEHCOMP_ADD_COMPONENT(85, 87, 96, 97),
+		ZVEHCOMP_ADD_COMPONENT(98, 134, 135, 136),
+		ZVEHCOMP_ADD_COMPONENT(137, 190, 191, 192),
+		ZVEHCOMP_ADD_COMPONENT(193, 0, 0, 0),
 	},
 	// 577
 	{
-		0
 	},
 	// 578
 	{
-		1008, 1009, 1010, 1025, 1073, 1074, 1075, 1076, 1077, 1078, 1079, 1080, 1081, 1082, 1083,
-		1084, 1085, 1087, 1096, 1097, 1098
+		ZVEHCOMP_ADD_COMPONENT(8, 9, 10, 25),
+		ZVEHCOMP_ADD_COMPONENT(73, 74, 75, 76),
+		ZVEHCOMP_ADD_COMPONENT(77, 78, 79, 80),
+		ZVEHCOMP_ADD_COMPONENT(81, 82, 83, 84),
+		ZVEHCOMP_ADD_COMPONENT(85, 87, 96, 97),
+		ZVEHCOMP_ADD_COMPONENT(98, 0, 0, 0),
 	},
 	// 579
 	{
-		1008, 1009, 1010, 1025, 1073, 1074, 1075, 1076, 1077, 1078, 1079, 1080, 1081, 1082, 1083,
-		1084, 1085, 1087, 1096, 1097, 1098
+		ZVEHCOMP_ADD_COMPONENT(8, 9, 10, 25),
+		ZVEHCOMP_ADD_COMPONENT(73, 74, 75, 76),
+		ZVEHCOMP_ADD_COMPONENT(77, 78, 79, 80),
+		ZVEHCOMP_ADD_COMPONENT(81, 82, 83, 84),
+		ZVEHCOMP_ADD_COMPONENT(85, 87, 96, 97),
+		ZVEHCOMP_ADD_COMPONENT(98, 0, 0, 0),
 	},
 	// 580
 	{
-		1001, 1006, 1007, 1008, 1009, 1010, 1017, 1018, 1020, 1023, 1025, 1073, 1074, 1075, 1076,
-		1077, 1078, 1079, 1080, 1081, 1082, 1083, 1084, 1085, 1087, 1096, 1097, 1098
+		ZVEHCOMP_ADD_COMPONENT(1, 6, 7, 8),
+		ZVEHCOMP_ADD_COMPONENT(9, 10, 17, 18),
+		ZVEHCOMP_ADD_COMPONENT(20, 23, 25, 73),
+		ZVEHCOMP_ADD_COMPONENT(74, 75, 76, 77),
+		ZVEHCOMP_ADD_COMPONENT(78, 79, 80, 81),
+		ZVEHCOMP_ADD_COMPONENT(82, 83, 84, 85),
+		ZVEHCOMP_ADD_COMPONENT(87, 96, 97, 98),
+		0
 	},
 	// 581
 	{
-		1008, 1009, 1010, 1025, 1073, 1074, 1075, 1076, 1077, 1078, 1079, 1080, 1081, 1082, 1083,
-		1084, 1085, 1087, 1096, 1097, 1098
+		ZVEHCOMP_ADD_COMPONENT(8, 9, 10, 25),
+		ZVEHCOMP_ADD_COMPONENT(73, 74, 75, 76),
+		ZVEHCOMP_ADD_COMPONENT(77, 78, 79, 80),
+		ZVEHCOMP_ADD_COMPONENT(81, 82, 83, 84),
+		ZVEHCOMP_ADD_COMPONENT(85, 87, 96, 97),
+		ZVEHCOMP_ADD_COMPONENT(98, 0, 0, 0),
 	},
 	// 582
 	{
-		1008, 1009, 1010, 1025, 1073, 1074, 1075, 1076, 1077, 1078, 1079, 1080, 1081, 1082, 1083,
-		1084, 1085, 1087, 1096, 1097, 1098
+		ZVEHCOMP_ADD_COMPONENT(8, 9, 10, 25),
+		ZVEHCOMP_ADD_COMPONENT(73, 74, 75, 76),
+		ZVEHCOMP_ADD_COMPONENT(77, 78, 79, 80),
+		ZVEHCOMP_ADD_COMPONENT(81, 82, 83, 84),
+		ZVEHCOMP_ADD_COMPONENT(85, 87, 96, 97),
+		ZVEHCOMP_ADD_COMPONENT(98, 0, 0, 0),
 	},
 	// 583
 	{
-		1008, 1009, 1010, 1025, 1073, 1074, 1075, 1076, 1077, 1078, 1079, 1080, 1081, 1082, 1083,
-		1084, 1085, 1087, 1096, 1097, 1098
+		ZVEHCOMP_ADD_COMPONENT(8, 9, 10, 25),
+		ZVEHCOMP_ADD_COMPONENT(73, 74, 75, 76),
+		ZVEHCOMP_ADD_COMPONENT(77, 78, 79, 80),
+		ZVEHCOMP_ADD_COMPONENT(81, 82, 83, 84),
+		ZVEHCOMP_ADD_COMPONENT(85, 87, 96, 97),
+		ZVEHCOMP_ADD_COMPONENT(98, 0, 0, 0),
 	},
 	// 584
 	{
-		1008, 1009, 1010, 1025, 1073, 1074, 1075, 1076, 1077, 1078, 1079, 1080, 1081, 1082, 1083,
-		1084, 1085, 1087, 1096, 1097, 1098
+		ZVEHCOMP_ADD_COMPONENT(8, 9, 10, 25),
+		ZVEHCOMP_ADD_COMPONENT(73, 74, 75, 76),
+		ZVEHCOMP_ADD_COMPONENT(77, 78, 79, 80),
+		ZVEHCOMP_ADD_COMPONENT(81, 82, 83, 84),
+		ZVEHCOMP_ADD_COMPONENT(85, 87, 96, 97),
+		ZVEHCOMP_ADD_COMPONENT(98, 0, 0, 0),
 	},
 	// 585
 	{
-		1001, 1003, 1006, 1007, 1008, 1009, 1010, 1013, 1017, 1018, 1019, 1020, 1023, 1025, 1073,
-		1074, 1075, 1076, 1077, 1078, 1079, 1080, 1081, 1082, 1083, 1084, 1085, 1087, 1096, 1097,
-		1098, 1142, 1143, 1144, 1145
+		ZVEHCOMP_ADD_COMPONENT(1, 3, 6, 7),
+		ZVEHCOMP_ADD_COMPONENT(8, 9, 10, 13),
+		ZVEHCOMP_ADD_COMPONENT(17, 18, 19, 20),
+		ZVEHCOMP_ADD_COMPONENT(23, 25, 73, 74),
+		ZVEHCOMP_ADD_COMPONENT(75, 76, 77, 78),
+		ZVEHCOMP_ADD_COMPONENT(79, 80, 81, 82),
+		ZVEHCOMP_ADD_COMPONENT(83, 84, 85, 87),
+		ZVEHCOMP_ADD_COMPONENT(96, 97, 98, 142),
+		ZVEHCOMP_ADD_COMPONENT(143, 144, 145, 0),
 	},
 	// 586
 	{
-		1008, 1009, 1010, 1025, 1073, 1074, 1075, 1076, 1077, 1078, 1079, 1080, 1081, 1082, 1083,
-		1084, 1085, 1087, 1096, 1097, 1098
+		ZVEHCOMP_ADD_COMPONENT(8, 9, 10, 25),
+		ZVEHCOMP_ADD_COMPONENT(73, 74, 75, 76),
+		ZVEHCOMP_ADD_COMPONENT(77, 78, 79, 80),
+		ZVEHCOMP_ADD_COMPONENT(81, 82, 83, 84),
+		ZVEHCOMP_ADD_COMPONENT(85, 87, 96, 97),
+		ZVEHCOMP_ADD_COMPONENT(98, 0, 0, 0),
 	},
 	// 587
 	{
-		1008, 1009, 1010, 1025, 1073, 1074, 1075, 1076, 1077, 1078, 1079, 1080, 1081, 1082, 1083,
-		1084, 1085, 1087, 1096, 1097, 1098
+		ZVEHCOMP_ADD_COMPONENT(8, 9, 10, 25),
+		ZVEHCOMP_ADD_COMPONENT(73, 74, 75, 76),
+		ZVEHCOMP_ADD_COMPONENT(77, 78, 79, 80),
+		ZVEHCOMP_ADD_COMPONENT(81, 82, 83, 84),
+		ZVEHCOMP_ADD_COMPONENT(85, 87, 96, 97),
+		ZVEHCOMP_ADD_COMPONENT(98, 0, 0, 0),
 	},
 	// 588
 	{
-		1008, 1009, 1010, 1025, 1073, 1074, 1075, 1076, 1077, 1078, 1079, 1080, 1081, 1082, 1083,
-		1084, 1085, 1087, 1096, 1097, 1098
+		ZVEHCOMP_ADD_COMPONENT(8, 9, 10, 25),
+		ZVEHCOMP_ADD_COMPONENT(73, 74, 75, 76),
+		ZVEHCOMP_ADD_COMPONENT(77, 78, 79, 80),
+		ZVEHCOMP_ADD_COMPONENT(81, 82, 83, 84),
+		ZVEHCOMP_ADD_COMPONENT(85, 87, 96, 97),
+		ZVEHCOMP_ADD_COMPONENT(98, 0, 0, 0),
 	},
 	// 589
 	{
-		1000, 1004, 1005, 1006, 1007, 1008, 1009, 1010, 1013, 1016, 1017, 1018, 1020, 1024, 1025,
-		1073, 1074, 1075, 1076, 1077, 1078, 1079, 1080, 1081, 1082, 1083, 1084, 1085, 1087, 1096,
-		1097, 1098, 1144, 1145
+		ZVEHCOMP_ADD_COMPONENT(0, 4, 5, 6),
+		ZVEHCOMP_ADD_COMPONENT(7, 8, 9, 10),
+		ZVEHCOMP_ADD_COMPONENT(13, 16, 17, 18),
+		ZVEHCOMP_ADD_COMPONENT(20, 24, 25, 73),
+		ZVEHCOMP_ADD_COMPONENT(74, 75, 76, 77),
+		ZVEHCOMP_ADD_COMPONENT(78, 79, 80, 81),
+		ZVEHCOMP_ADD_COMPONENT(82, 83, 84, 85),
+		ZVEHCOMP_ADD_COMPONENT(87, 96, 97, 98),
+		ZVEHCOMP_ADD_COMPONENT(144, 145, 0, 0),
 	},
 	// 590
 	{
-		0
 	},
 	// 591
 	{
-		1008, 1009, 1010, 1025, 1073, 1074, 1075, 1076, 1077, 1078, 1079, 1080, 1081, 1082, 1083,
-		1084, 1085, 1087, 1096, 1097, 1098
+		ZVEHCOMP_ADD_COMPONENT(8, 9, 10, 25),
+		ZVEHCOMP_ADD_COMPONENT(73, 74, 75, 76),
+		ZVEHCOMP_ADD_COMPONENT(77, 78, 79, 80),
+		ZVEHCOMP_ADD_COMPONENT(81, 82, 83, 84),
+		ZVEHCOMP_ADD_COMPONENT(85, 87, 96, 97),
+		ZVEHCOMP_ADD_COMPONENT(98, 0, 0, 0),
 	},
 	// 592
 	{
-		0
 	},
 	// 593
 	{
-		0
 	},
 	// 594
 	{
-		1008, 1009, 1010, 1025, 1073, 1074, 1075, 1076, 1077, 1078, 1079, 1080, 1081, 1082, 1083,
-		1084, 1085, 1087, 1096, 1097, 1098
+		ZVEHCOMP_ADD_COMPONENT(8, 9, 10, 25),
+		ZVEHCOMP_ADD_COMPONENT(73, 74, 75, 76),
+		ZVEHCOMP_ADD_COMPONENT(77, 78, 79, 80),
+		ZVEHCOMP_ADD_COMPONENT(81, 82, 83, 84),
+		ZVEHCOMP_ADD_COMPONENT(85, 87, 96, 97),
+		ZVEHCOMP_ADD_COMPONENT(98, 0, 0, 0),
 	},
 	// 595
 	{
-		0
 	},
 	// 596
 	{
-		1008, 1009, 1010, 1025, 1073, 1074, 1075, 1076, 1077, 1078, 1079, 1080, 1081, 1082, 1083,
-		1084, 1085, 1087, 1096, 1097, 1098
+		ZVEHCOMP_ADD_COMPONENT(8, 9, 10, 25),
+		ZVEHCOMP_ADD_COMPONENT(73, 74, 75, 76),
+		ZVEHCOMP_ADD_COMPONENT(77, 78, 79, 80),
+		ZVEHCOMP_ADD_COMPONENT(81, 82, 83, 84),
+		ZVEHCOMP_ADD_COMPONENT(85, 87, 96, 97),
+		ZVEHCOMP_ADD_COMPONENT(98, 0, 0, 0),
 	},
 	// 597
 	{
-		1008, 1009, 1010, 1025, 1073, 1074, 1075, 1076, 1077, 1078, 1079, 1080, 1081, 1082, 1083,
-		1084, 1085, 1087, 1096, 1097, 1098
+		ZVEHCOMP_ADD_COMPONENT(8, 9, 10, 25),
+		ZVEHCOMP_ADD_COMPONENT(73, 74, 75, 76),
+		ZVEHCOMP_ADD_COMPONENT(77, 78, 79, 80),
+		ZVEHCOMP_ADD_COMPONENT(81, 82, 83, 84),
+		ZVEHCOMP_ADD_COMPONENT(85, 87, 96, 97),
+		ZVEHCOMP_ADD_COMPONENT(98, 0, 0, 0),
 	},
 	// 598
 	{
-		1008, 1009, 1010, 1025, 1073, 1074, 1075, 1076, 1077, 1078, 1079, 1080, 1081, 1082, 1083,
-		1084, 1085, 1087, 1096, 1097, 1098
+		ZVEHCOMP_ADD_COMPONENT(8, 9, 10, 25),
+		ZVEHCOMP_ADD_COMPONENT(73, 74, 75, 76),
+		ZVEHCOMP_ADD_COMPONENT(77, 78, 79, 80),
+		ZVEHCOMP_ADD_COMPONENT(81, 82, 83, 84),
+		ZVEHCOMP_ADD_COMPONENT(85, 87, 96, 97),
+		ZVEHCOMP_ADD_COMPONENT(98, 0, 0, 0),
 	},
 	// 599
 	{
-		1008, 1009, 1010, 1025, 1073, 1074, 1075, 1076, 1077, 1078, 1079, 1080, 1081, 1082, 1083,
-		1084, 1085, 1087, 1096, 1097, 1098
+		ZVEHCOMP_ADD_COMPONENT(8, 9, 10, 25),
+		ZVEHCOMP_ADD_COMPONENT(73, 74, 75, 76),
+		ZVEHCOMP_ADD_COMPONENT(77, 78, 79, 80),
+		ZVEHCOMP_ADD_COMPONENT(81, 82, 83, 84),
+		ZVEHCOMP_ADD_COMPONENT(85, 87, 96, 97),
+		ZVEHCOMP_ADD_COMPONENT(98, 0, 0, 0),
 	},
 	// 600
 	{
-		1004, 1005, 1006, 1007, 1008, 1009, 1010, 1013, 1017, 1018, 1020, 1022, 1025, 1073, 1074,
-		1075, 1076, 1077, 1078, 1079, 1080, 1081, 1082, 1083, 1084, 1085, 1087, 1096, 1097, 1098
+		ZVEHCOMP_ADD_COMPONENT(4, 5, 6, 7),
+		ZVEHCOMP_ADD_COMPONENT(8, 9, 10, 13),
+		ZVEHCOMP_ADD_COMPONENT(17, 18, 20, 22),
+		ZVEHCOMP_ADD_COMPONENT(25, 73, 74, 75),
+		ZVEHCOMP_ADD_COMPONENT(76, 77, 78, 79),
+		ZVEHCOMP_ADD_COMPONENT(80, 81, 82, 83),
+		ZVEHCOMP_ADD_COMPONENT(84, 85, 87, 96),
+		ZVEHCOMP_ADD_COMPONENT(97, 98, 0, 0),
 	},
 	// 601
 	{
-		1008, 1009, 1010, 1025, 1073, 1074, 1075, 1076, 1077, 1078, 1079, 1080, 1081, 1082, 1083,
-		1084, 1085, 1087, 1096, 1097, 1098
+		ZVEHCOMP_ADD_COMPONENT(8, 9, 10, 25),
+		ZVEHCOMP_ADD_COMPONENT(73, 74, 75, 76),
+		ZVEHCOMP_ADD_COMPONENT(77, 78, 79, 80),
+		ZVEHCOMP_ADD_COMPONENT(81, 82, 83, 84),
+		ZVEHCOMP_ADD_COMPONENT(85, 87, 96, 97),
+		ZVEHCOMP_ADD_COMPONENT(98, 0, 0, 0),
 	},
 	// 602
 	{
-		1008, 1009, 1010, 1025, 1073, 1074, 1075, 1076, 1077, 1078, 1079, 1080, 1081, 1082, 1083,
-		1084, 1085, 1087, 1096, 1097, 1098
+		ZVEHCOMP_ADD_COMPONENT(8, 9, 10, 25),
+		ZVEHCOMP_ADD_COMPONENT(73, 74, 75, 76),
+		ZVEHCOMP_ADD_COMPONENT(77, 78, 79, 80),
+		ZVEHCOMP_ADD_COMPONENT(81, 82, 83, 84),
+		ZVEHCOMP_ADD_COMPONENT(85, 87, 96, 97),
+		ZVEHCOMP_ADD_COMPONENT(98, 0, 0, 0),
 	},
 	// 603
 	{
-		1001, 1006, 1007, 1008, 1009, 1010, 1017, 1018, 1019, 1020, 1023, 1024, 1025, 1073, 1074,
-		1075, 1076, 1077, 1078, 1079, 1080, 1081, 1082, 1083, 1084, 1085, 1087, 1096, 1097, 1098,
-		1142, 1143, 1144, 1145
+		ZVEHCOMP_ADD_COMPONENT(1, 6, 7, 8),
+		ZVEHCOMP_ADD_COMPONENT(9, 10, 17, 18),
+		ZVEHCOMP_ADD_COMPONENT(19, 20, 23, 24),
+		ZVEHCOMP_ADD_COMPONENT(25, 73, 74, 75),
+		ZVEHCOMP_ADD_COMPONENT(76, 77, 78, 79),
+		ZVEHCOMP_ADD_COMPONENT(80, 81, 82, 83),
+		ZVEHCOMP_ADD_COMPONENT(84, 85, 87, 96),
+		ZVEHCOMP_ADD_COMPONENT(97, 98, 142, 143),
+		ZVEHCOMP_ADD_COMPONENT(144, 145, 0, 0),
 	},
 	// 604
 	{
-		1008, 1009, 1010, 1025, 1073, 1074, 1075, 1076, 1077, 1078, 1079, 1080, 1081, 1082, 1083,
-		1084, 1085, 1087, 1096, 1097, 1098
+		ZVEHCOMP_ADD_COMPONENT(8, 9, 10, 25),
+		ZVEHCOMP_ADD_COMPONENT(73, 74, 75, 76),
+		ZVEHCOMP_ADD_COMPONENT(77, 78, 79, 80),
+		ZVEHCOMP_ADD_COMPONENT(81, 82, 83, 84),
+		ZVEHCOMP_ADD_COMPONENT(85, 87, 96, 97),
+		ZVEHCOMP_ADD_COMPONENT(98, 0, 0, 0),
 	},
 	// 605
 	{
-		1008, 1009, 1010, 1025, 1073, 1074, 1075, 1076, 1077, 1078, 1079, 1080, 1081, 1082, 1083,
-		1084, 1085, 1087, 1096, 1097, 1098
+		ZVEHCOMP_ADD_COMPONENT(8, 9, 10, 25),
+		ZVEHCOMP_ADD_COMPONENT(73, 74, 75, 76),
+		ZVEHCOMP_ADD_COMPONENT(77, 78, 79, 80),
+		ZVEHCOMP_ADD_COMPONENT(81, 82, 83, 84),
+		ZVEHCOMP_ADD_COMPONENT(85, 87, 96, 97),
+		ZVEHCOMP_ADD_COMPONENT(98, 0, 0, 0),
 	},
 	// 606
 	{
-		1008, 1009, 1010, 1025, 1073, 1074, 1075, 1076, 1077, 1078, 1079, 1080, 1081, 1082, 1083,
-		1084, 1085, 1087, 1096, 1097, 1098
+		ZVEHCOMP_ADD_COMPONENT(8, 9, 10, 25),
+		ZVEHCOMP_ADD_COMPONENT(73, 74, 75, 76),
+		ZVEHCOMP_ADD_COMPONENT(77, 78, 79, 80),
+		ZVEHCOMP_ADD_COMPONENT(81, 82, 83, 84),
+		ZVEHCOMP_ADD_COMPONENT(85, 87, 96, 97),
+		ZVEHCOMP_ADD_COMPONENT(98, 0, 0, 0),
 	},
 	// 607
 	{
-		1008, 1009, 1010, 1025, 1073, 1074, 1075, 1076, 1077, 1078, 1079, 1080, 1081, 1082, 1083,
-		1084, 1085, 1087, 1096, 1097, 1098
+		ZVEHCOMP_ADD_COMPONENT(8, 9, 10, 25),
+		ZVEHCOMP_ADD_COMPONENT(73, 74, 75, 76),
+		ZVEHCOMP_ADD_COMPONENT(77, 78, 79, 80),
+		ZVEHCOMP_ADD_COMPONENT(81, 82, 83, 84),
+		ZVEHCOMP_ADD_COMPONENT(85, 87, 96, 97),
+		ZVEHCOMP_ADD_COMPONENT(98, 0, 0, 0),
 	},
 	// 608
 	{
-		1008, 1009, 1010, 1025, 1073, 1074, 1075, 1076, 1077, 1078, 1079, 1080, 1081, 1082, 1083,
-		1084, 1085, 1087, 1096, 1097, 1098
+		ZVEHCOMP_ADD_COMPONENT(8, 9, 10, 25),
+		ZVEHCOMP_ADD_COMPONENT(73, 74, 75, 76),
+		ZVEHCOMP_ADD_COMPONENT(77, 78, 79, 80),
+		ZVEHCOMP_ADD_COMPONENT(81, 82, 83, 84),
+		ZVEHCOMP_ADD_COMPONENT(85, 87, 96, 97),
+		ZVEHCOMP_ADD_COMPONENT(98, 0, 0, 0),
 	},
 	// 609
 	{
-		1008, 1009, 1010, 1025, 1073, 1074, 1075, 1076, 1077, 1078, 1079, 1080, 1081, 1082, 1083,
-		1084, 1085, 1087, 1096, 1097, 1098
+		ZVEHCOMP_ADD_COMPONENT(8, 9, 10, 25),
+		ZVEHCOMP_ADD_COMPONENT(73, 74, 75, 76),
+		ZVEHCOMP_ADD_COMPONENT(77, 78, 79, 80),
+		ZVEHCOMP_ADD_COMPONENT(81, 82, 83, 84),
+		ZVEHCOMP_ADD_COMPONENT(85, 87, 96, 97),
+		ZVEHCOMP_ADD_COMPONENT(98, 0, 0, 0),
 	},
 	// 610
 	{
-		1008, 1009, 1010, 1025, 1073, 1074, 1075, 1076, 1077, 1078, 1079, 1080, 1081, 1082, 1083,
-		1084, 1085, 1087, 1096, 1097, 1098
+		ZVEHCOMP_ADD_COMPONENT(8, 9, 10, 25),
+		ZVEHCOMP_ADD_COMPONENT(73, 74, 75, 76),
+		ZVEHCOMP_ADD_COMPONENT(77, 78, 79, 80),
+		ZVEHCOMP_ADD_COMPONENT(81, 82, 83, 84),
+		ZVEHCOMP_ADD_COMPONENT(85, 87, 96, 97),
+		ZVEHCOMP_ADD_COMPONENT(98, 0, 0, 0),
 	},
 	// 611
 	{
-		1008, 1009, 1010, 1025, 1073, 1074, 1075, 1076, 1077, 1078, 1079, 1080, 1081, 1082, 1083,
-		1084, 1085, 1087, 1096, 1097, 1098
+		ZVEHCOMP_ADD_COMPONENT(8, 9, 10, 25),
+		ZVEHCOMP_ADD_COMPONENT(73, 74, 75, 76),
+		ZVEHCOMP_ADD_COMPONENT(77, 78, 79, 80),
+		ZVEHCOMP_ADD_COMPONENT(81, 82, 83, 84),
+		ZVEHCOMP_ADD_COMPONENT(85, 87, 96, 97),
+		ZVEHCOMP_ADD_COMPONENT(98, 0, 0, 0),
 	}
 };
 
@@ -1314,8 +2010,7 @@ stock GetComponentTypeName(type, name[], size = sizeof(name))
 		return 0;
 	}
 
-	strmid(name, gComponentType[type], 0, strlen(gComponentType[type]), size);
-	return 1;
+	return strunpack(name, gComponentType[type], size);
 }
 
 stock GetVehicleCompatibleTypes(model, array[MAX_COMPONENT_TYPES], &array_size)
@@ -1354,13 +2049,12 @@ stock GetVehicleCompatibleTypes(model, array[MAX_COMPONENT_TYPES], &array_size)
 
 stock GetComponentName(componentid, cname[], size = sizeof(cname))
 {
-	new idx = componentid - 1000;
-	if (idx < 0 || idx >= sizeof(gComponentName)) {
+	new index = componentid - 1000;
+	if (index < 0 || index >= sizeof(gComponentName)) {
 		return 0;
 	}
 
-	strmid(cname, gComponentName[idx], 0, strlen(gComponentName[idx]), size);
-	return 1;
+	return strunpack(cname, gComponentName[index], size);
 }
 
 stock GetVehicleCompatibleUpgrades(model, array[MAX_COMPONENTS], &array_size)
@@ -1369,15 +2063,18 @@ stock GetVehicleCompatibleUpgrades(model, array[MAX_COMPONENTS], &array_size)
 		return 0;
 	}
 
-	new index = model - 400;
+	new
+		index;
+
+	index = model - 400;
 	array_size = 0;
 
 	for (new i = 0; i < MAX_COMPONENTS; i++) {
-		if (gComponents[index][i] == 0) {
+		if (gComponents[index]{i} == 0) {
 			break;
 		}
 
-		array[array_size++] = gComponents[index][i];
+		array[array_size++] = gComponents[index]{i} + 1000;
 	}
 
 	return 1;
@@ -1389,10 +2086,15 @@ stock IsVehicleUpgradeCompatible(model, componentid)
 		return 0;
 	}
 
-	new index = model - 400;
+	new
+		index,
+		component_value;
+
+	index = model - 400;
+	component_value = componentid - 1000;
 
 	for (new i = 0; i < MAX_COMPONENTS; i++) {
-		if (gComponents[index][i] == componentid) {
+		if (gComponents[index]{i} == component_value) {
 			return 1;
 		}
 	}
