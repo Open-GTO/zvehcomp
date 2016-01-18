@@ -16,11 +16,11 @@
 	Defines
 */
 
-#define ZVEH_ZVEH_INVALID_COMPONENT_ID    (255)
-#define ZVEH_MAX_COMPONENTS               (41)
-#define ZVEH_MAX_COMPONENT_NAME           (64)
-#define ZVEH_MAX_COMPONENT_TYPES          (14)
-#define ZVEH_MAX_COMPONENT_TYPE_NAME      (16)
+#define ZVEH_INVALID_COMPONENT_ID    (255)
+#define ZVEH_MAX_COMPONENTS          (41)
+#define ZVEH_MAX_COMPONENT_NAME      (64)
+#define ZVEH_MAX_COMPONENT_TYPES     (14)
+#define ZVEH_MAX_COMPONENT_TYPE_NAME (16)
 
 /*
 	Component types
