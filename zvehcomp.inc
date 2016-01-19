@@ -2,7 +2,9 @@
 
 	About: vehicle component system
 	Author:	ziggi
-	Thanks to AirKite for component names
+	Thanks:
+		AirKite for component names
+		JernejL и Y_Less for components data (fixes.inc)
 
 */
 
