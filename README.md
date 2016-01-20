@@ -18,10 +18,10 @@ for (new i = 0; i < compatible_types_count; i++) {
 # Functions
 
 ```Pawn
-GetComponentTypeId(name[]);
-GetComponentTypeName(type, name[], size = sizeof(name));
+GetVehicleComponentTypeId(name[]);
+GetVehicleComponentTypeName(type, name[], size = sizeof(name));
 GetVehicleCompatibleTypes(model, array[ZVEH_MAX_COMPONENT_TYPES], &array_size);
-GetComponentName(componentid, cname[], size = sizeof(cname));
+GetVehicleComponentName(componentid, cname[], size = sizeof(cname));
 GetVehicleCompatibleUpgrades(model, array[ZVEH_MAX_COMPONENTS], &array_size);
 IsVehicleUpgradeCompatible(model, componentid);
 ```

@@ -1,11 +1,32 @@
 /*
-
 	About: vehicle component system
 	Author:	ziggi
 	Thanks:
 		AirKite for component names
 		JernejL и Y_Less for components data (fixes.inc)
+*/
+/*
+	The MIT License (MIT)
 
+	Copyright (c) 2015 
+
+	Permission is hereby granted, free of charge, to any person obtaining a copy
+	of this software and associated documentation files (the "Software"), to deal
+	in the Software without restriction, including without limitation the rights
+	to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+	copies of the Software, and to permit persons to whom the Software is
+	furnished to do so, subject to the following conditions:
+
+	The above copyright notice and this permission notice shall be included in all
+	copies or substantial portions of the Software.
+
+	THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+	IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+	FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+	AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+	LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+	OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
+	SOFTWARE.
 */
 
 #if defined _z_vehicle_component_included
@@ -2163,7 +2184,7 @@ static gComponents[212][ZVEH_MAX_COMPONENTS char] = {
 	Component type functions
 */
 
-stock GetComponentTypeId(name[])
+stock GetVehicleComponentTypeId(name[])
 {
 	for (new i = 0; i < sizeof(gComponentType); i++) {
 		if (strcmp(gComponentType[i], name, true) == 0) {
@@ -2174,7 +2195,7 @@ stock GetComponentTypeId(name[])
 	return ZVEH_INVALID_COMPONENT_ID;
 }
 
-stock GetComponentTypeName(type, name[], size = sizeof(name))
+stock GetVehicleComponentTypeName(type, name[], size = sizeof(name))
 {
 	if (type < 0 || type >= sizeof(gComponentType)) {
 		return 0;
@@ -2217,7 +2238,7 @@ stock GetVehicleCompatibleTypes(model, array[ZVEH_MAX_COMPONENT_TYPES], &array_s
 	Component upgrade functions
 */
 
-stock GetComponentName(componentid, cname[], size = sizeof(cname))
+stock GetVehicleComponentName(componentid, cname[], size = sizeof(cname))
 {
 	new index = componentid - 1000;
 	if (index < 0 || index >= sizeof(gComponentName)) {
