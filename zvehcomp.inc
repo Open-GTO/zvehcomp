@@ -2243,7 +2243,7 @@ stock GetVehicleCompatibleTypes(model, array[ZVEH_MAX_COMPONENT_TYPES], &array_s
 stock GetVehicleComponentName(componentid, cname[], size = sizeof(cname))
 {
 	new index = componentid - 1000;
-	if (index < 0 || index >= sizeof(gComponentName)) {
+	if (!(0 <= index < sizeof(gComponentName))) {
 		return 0;
 	}
 
@@ -2252,7 +2252,7 @@ stock GetVehicleComponentName(componentid, cname[], size = sizeof(cname))
 
 stock GetVehicleCompatibleUpgrades(model, array[ZVEH_MAX_COMPONENTS], &array_size)
 {
-	if (model < 400 || model > 611) {
+	if (!(400 <= model <= 611)) {
 		return 0;
 	}
 
@@ -2275,7 +2275,7 @@ stock GetVehicleCompatibleUpgrades(model, array[ZVEH_MAX_COMPONENTS], &array_siz
 
 stock IsVehicleUpgradeCompatible(model, componentid)
 {
-	if (model < 400 || model > 611) {
+	if (!(400 <= model <= 611)) {
 		return 0;
 	}
 
@@ -2297,4 +2297,12 @@ stock IsVehicleUpgradeCompatible(model, componentid)
 	}
 
 	return 0;
+}
+
+stock IsVehicleHaveUpgrades(model)
+{
+	if (!(400 <= model <= 611)) {
+		return 0;
+	}
+	return gComponents[model - 400]{0} == ZVEH_INVALID_COMPONENT_ID;
 }

@@ -24,6 +24,7 @@ GetVehicleCompatibleTypes(model, array[ZVEH_MAX_COMPONENT_TYPES], &array_size);
 GetVehicleComponentName(componentid, cname[], size = sizeof(cname));
 GetVehicleCompatibleUpgrades(model, array[ZVEH_MAX_COMPONENTS], &array_size);
 IsVehicleUpgradeCompatible(model, componentid);
+IsVehicleHaveUpgrades(model);
 ```
 
 # Directives
