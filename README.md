@@ -32,7 +32,7 @@ IsVehicleHaveUpgrades(model);
 Directive | Default value | Can be redefined
 ----------|---------------|------------
 ZVEH_INVALID_COMPONENT_ID | 255 | no
-ZVEH_MAX_COMPONENTS | 45 | no
+ZVEH_MAX_COMPONENTS | 48 | no
 ZVEH_MAX_COMPONENT_NAME | 64 | no
 ZVEH_MAX_COMPONENT_TYPES | 14 | no
 ZVEH_INVALID_COMPONENT_ID | 16 | no
