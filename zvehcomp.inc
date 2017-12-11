@@ -40,7 +40,7 @@
 */
 
 #define ZVEH_INVALID_COMPONENT_ID    (255)
-#define ZVEH_MAX_COMPONENTS          (45)
+#define ZVEH_MAX_COMPONENTS          (48)
 #define ZVEH_MAX_COMPONENT_NAME      (64)
 #define ZVEH_MAX_COMPONENT_TYPES     (14)
 #define ZVEH_MAX_COMPONENT_TYPE_NAME (16)
@@ -1788,8 +1788,7 @@ static gComponents[212][ZVEH_MAX_COMPONENTS char] = {
 		ZVEH_ADD_COMPONENT(87, 96, 97, 98),
 		ZVEH_ADD_COMPONENT(154, 155, 156, 157),
 		ZVEH_ADD_COMPONENT(0, 1, 2, 3),
-		ZVEH_ADD_COMPONENT(6, 14, 15, 16),
-		ZVEH_ADD_INVALID_COMPONENT()
+		ZVEH_ADD_COMPONENT(6, 14, 15, 16)
 	},
 	// 562
 	{
@@ -2389,5 +2388,6 @@ stock IsVehicleHaveUpgrades(model)
 	if (!(400 <= model <= 611)) {
 		return 0;
 	}
+
 	return gComponents[model - 400]{0} == ZVEH_INVALID_COMPONENT_ID;
 }
