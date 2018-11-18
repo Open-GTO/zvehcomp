@@ -2269,7 +2269,7 @@ static gComponents[212][ZVEH_MAX_COMPONENTS char] = {
 	Component type functions
 */
 
-stock GetVehicleComponentTypeId(name[])
+stock GetVehicleComponentTypeId(const name[])
 {
 	for (new i = 0; i < sizeof(gComponentType); i++) {
 		if (strcmp(gComponentType[i], name, true) == 0) {
