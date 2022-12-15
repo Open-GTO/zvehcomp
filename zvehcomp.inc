@@ -2293,14 +2293,12 @@ stock GetVehicleCompatibleTypes(model, array[ZVEH_MAX_COMPONENT_TYPES], &array_s
 	array_size = 0;
 
 	for (new i = 0; i < components_size; i++) {
-	        // Workaround the server bug reporting the wrong component type id
-	        if (components[i] == 1175) {
+		// Workaround the server bug reporting the wrong component type id
+		if (components[i] == 1175) {
 			type_id = CARMODTYPE_FRONT_BUMPER;
-		}
-		else if (components[i] == 1176) {
+		} else if (components[i] == 1176) {
 			type_id = CARMODTYPE_REAR_BUMPER;
-		}
-		else {
+		} else {
 			type_id = GetVehicleComponentType(components[i]);
 		}
 
